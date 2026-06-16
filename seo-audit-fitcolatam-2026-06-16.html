@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reporte SEO — fitcolatam.com (Junio 2026)</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Segoe UI', Arial, sans-serif; color: #1a1a2e; background: #f8f9fc; font-size: 15px; line-height: 1.6; }
+
+  /* COVER PAGE */
+  .cover {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 60%, #0f3460 100%);
+    color: white; min-height: 100vh; display: flex; flex-direction: column;
+    justify-content: center; align-items: center; text-align: center;
+    padding: 60px 40px; page-break-after: always;
+  }
+  .cover-logo { font-size: 48px; margin-bottom: 16px; }
+  .cover h1 { font-size: 38px; font-weight: 800; margin-bottom: 8px; letter-spacing: -1px; }
+  .cover h2 { font-size: 20px; font-weight: 400; opacity: 0.8; margin-bottom: 40px; }
+  .cover-url { background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 30px; padding: 10px 28px; font-size: 17px; font-weight: 600; margin-bottom: 40px; }
+  .cover-date { opacity: 0.6; font-size: 14px; margin-bottom: 48px; }
+  .score-circle {
+    width: 160px; height: 160px; border-radius: 50%;
+    border: 8px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.08);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    margin: 0 auto 12px;
+  }
+  .score-circle .score-num { font-size: 52px; font-weight: 900; color: #ff6b6b; line-height: 1; }
+  .score-circle .score-denom { font-size: 18px; opacity: 0.6; }
+  .score-label { font-size: 14px; opacity: 0.7; text-transform: uppercase; letter-spacing: 2px; }
+
+  /* MAIN CONTENT */
+  .container { max-width: 860px; margin: 0 auto; padding: 48px 40px; }
+
+  /* SECTION HEADERS */
+  .section-header {
+    display: flex; align-items: center; gap: 12px;
+    margin: 48px 0 20px; padding-bottom: 12px;
+    border-bottom: 3px solid #e8eaf6;
+  }
+  .section-icon { font-size: 28px; }
+  .section-title { font-size: 24px; font-weight: 800; color: #1a1a2e; }
+
+  h3 { font-size: 17px; font-weight: 700; color: #16213e; margin: 28px 0 10px; }
+  p { margin-bottom: 12px; color: #444; }
+
+  /* SCORE CARDS GRID */
+  .score-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin: 24px 0; }
+  .score-card {
+    background: white; border-radius: 12px; padding: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07); border-top: 4px solid #e0e0e0;
+  }
+  .score-card.red   { border-top-color: #ff4757; }
+  .score-card.orange{ border-top-color: #ffa502; }
+  .score-card.yellow{ border-top-color: #eccc68; }
+  .score-card.green { border-top-color: #2ed573; }
+  .score-card .cat  { font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: #888; margin-bottom: 6px; }
+  .score-card .val  { font-size: 32px; font-weight: 900; color: #1a1a2e; line-height: 1; }
+  .score-card .bar  { height: 6px; background: #f0f0f0; border-radius: 3px; margin-top: 10px; overflow: hidden; }
+  .score-card .bar-fill { height: 100%; border-radius: 3px; }
+  .score-card.red    .bar-fill { background: #ff4757; }
+  .score-card.orange .bar-fill { background: #ffa502; }
+  .score-card.yellow .bar-fill { background: #eccc68; }
+  .score-card.green  .bar-fill { background: #2ed573; }
+  .score-card .bar-label { font-size: 12px; color: #aaa; margin-top: 4px; }
+
+  /* OVERALL SCORE BAR */
+  .overall-score-box {
+    background: linear-gradient(135deg, #1a1a2e, #0f3460);
+    color: white; border-radius: 16px; padding: 32px 36px;
+    display: flex; align-items: center; gap: 32px; margin: 24px 0;
+  }
+  .ov-num { font-size: 72px; font-weight: 900; color: #ff6b6b; line-height: 1; }
+  .ov-right h2 { font-size: 22px; font-weight: 700; margin-bottom: 6px; }
+  .ov-right p { opacity: 0.75; font-size: 14px; color: #ccc; margin: 0; }
+  .ov-bar { height: 10px; background: rgba(255,255,255,0.15); border-radius: 5px; margin-top: 14px; overflow: hidden; width: 300px; }
+  .ov-bar-fill { height: 100%; background: #ff6b6b; border-radius: 5px; width: 40%; }
+
+  /* ISSUE CARDS */
+  .issue-card {
+    background: white; border-radius: 12px; padding: 22px 24px;
+    margin: 14px 0; box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    border-left: 5px solid #e0e0e0; page-break-inside: avoid;
+  }
+  .issue-card.critical { border-left-color: #ff4757; }
+  .issue-card.high     { border-left-color: #ffa502; }
+  .issue-card.medium   { border-left-color: #eccc68; }
+
+  .issue-header { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 10px; }
+  .issue-badge {
+    padding: 3px 10px; border-radius: 20px; font-size: 11px;
+    font-weight: 700; text-transform: uppercase; letter-spacing: 1px; white-space: nowrap; margin-top: 2px;
+  }
+  .badge-critical { background: #fff0f0; color: #ff4757; }
+  .badge-high     { background: #fff8ee; color: #e67e22; }
+  .badge-medium   { background: #fffbea; color: #d4ac0d; }
+  .issue-title { font-size: 16px; font-weight: 700; color: #1a1a2e; flex: 1; }
+
+  .issue-body .what { margin-bottom: 8px; font-size: 14px; color: #555; }
+  .issue-body .why  { color: #888; font-size: 13px; margin-bottom: 8px; }
+  .issue-body .fix  {
+    background: #f0fdf4; border-left: 3px solid #2ed573;
+    padding: 10px 14px; border-radius: 6px; font-size: 13px; color: #2d5a3d;
+  }
+  .fix-label { font-weight: 700; text-transform: uppercase; font-size: 11px; letter-spacing: 1px; margin-bottom: 4px; }
+
+  /* ACTION TABLE */
+  .plan-table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 14px; }
+  .plan-table th {
+    background: #1a1a2e; color: white; padding: 12px 14px;
+    text-align: left; font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;
+  }
+  .plan-table td { padding: 12px 14px; border-bottom: 1px solid #f0f0f0; vertical-align: top; }
+  .plan-table tr:hover td { background: #fafbff; }
+  .plan-table tr:last-child td { border-bottom: none; }
+  .effort-tag { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 11px; font-weight: 600; }
+  .effort-low { background: #d5f5e3; color: #1e8449; }
+  .effort-med { background: #fef9e7; color: #b7950b; }
+  .effort-high{ background: #fdedec; color: #c0392b; }
+
+  /* INFO / HIGHLIGHT BOXES */
+  .info-box { background: #eef2ff; border-radius: 12px; padding: 24px 28px; margin: 24px 0; border-left: 4px solid #5c6bc0; }
+  .info-box h3 { color: #3949ab; margin-top: 0; margin-bottom: 10px; font-size: 16px; }
+  .info-box p  { color: #555; font-size: 14px; }
+
+  .highlight-red   { background: #fff5f5; border-radius: 10px; padding: 18px 20px; margin: 16px 0; border-left: 4px solid #ff4757; }
+  .highlight-blue  { background: #f0f4ff; border-radius: 10px; padding: 18px 20px; margin: 16px 0; border-left: 4px solid #5c6bc0; }
+  .highlight-green { background: #f0fdf4; border-radius: 10px; padding: 18px 20px; margin: 16px 0; border-left: 4px solid #2ed573; }
+  .highlight-green h3 { color: #1e8449; margin-top: 0; }
+
+  /* NEW BADGE */
+  .new-badge { display: inline-block; background: #ff4757; color: white; border-radius: 6px; padding: 1px 7px; font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; margin-left: 6px; vertical-align: middle; }
+
+  /* GLOSSARY */
+  .glossary-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 20px 0; }
+  .glossary-item { background: white; border-radius: 10px; padding: 16px; box-shadow: 0 2px 6px rgba(0,0,0,0.05); }
+  .glossary-term { font-weight: 700; color: #5c6bc0; font-size: 14px; margin-bottom: 4px; }
+  .glossary-def  { font-size: 13px; color: #666; }
+
+  /* TRAFFIC LIGHT */
+  .traffic-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 24px 0; }
+  .traffic-card { border-radius: 12px; padding: 20px; text-align: center; background: white; box-shadow: 0 2px 8px rgba(0,0,0,0.07); }
+  .traffic-light { font-size: 36px; margin-bottom: 8px; }
+  .traffic-label { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; font-weight: 700; margin-bottom: 6px; }
+  .traffic-count { font-size: 40px; font-weight: 900; line-height: 1; }
+  .traffic-desc  { font-size: 12px; color: #aaa; margin-top: 4px; }
+
+  /* TIMELINE */
+  .timeline { margin: 28px 0; }
+  .timeline-item { display: flex; gap: 20px; margin-bottom: 28px; }
+  .timeline-left { display: flex; flex-direction: column; align-items: center; min-width: 80px; }
+  .timeline-dot { width: 44px; height: 44px; border-radius: 50%; background: #1a1a2e; color: white; font-size: 16px; display: flex; align-items: center; justify-content: center; font-weight: 800; }
+  .timeline-dot.w1 { background: #ff4757; }
+  .timeline-dot.w2 { background: #ff6b35; }
+  .timeline-dot.m2 { background: #ffa502; }
+  .timeline-dot.m3 { background: #2ed573; }
+  .timeline-line { width: 2px; flex: 1; background: #e8eaf6; margin-top: 4px; }
+  .timeline-right { flex: 1; padding-bottom: 8px; }
+  .timeline-period { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #aaa; margin-bottom: 6px; }
+  .timeline-title  { font-size: 16px; font-weight: 700; color: #1a1a2e; margin-bottom: 8px; }
+  .timeline-tasks  { list-style: none; }
+  .timeline-tasks li { font-size: 14px; color: #555; padding: 4px 0; display: flex; gap: 8px; align-items: flex-start; }
+  .timeline-tasks li::before { content: "→"; color: #5c6bc0; font-weight: 700; margin-top: 1px; }
+
+  .page-break { page-break-before: always; }
+  .divider { height: 1px; background: #e8eaf6; margin: 40px 0; }
+
+  .report-footer { background: #1a1a2e; color: rgba(255,255,255,0.6); text-align: center; padding: 32px; font-size: 13px; margin-top: 48px; }
+  .report-footer strong { color: white; }
+
+  code { background: #f4f4f8; padding: 1px 5px; border-radius: 4px; font-size: 12px; color: #c0392b; }
+
+  @media print {
+    body { background: white; }
+    .cover { min-height: auto; padding: 80px 40px; }
+    .container { padding: 32px 40px; }
+    .issue-card, .score-card, .traffic-card { box-shadow: none; border: 1px solid #e0e0e0; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ================================================================ COVER -->
+<div class="cover">
+  <div class="cover-logo">🏋️</div>
+  <h1>Reporte de Salud SEO</h1>
+  <h2>Análisis de visibilidad en Google e Inteligencias Artificiales</h2>
+  <div class="cover-url">🌐 www.fitcolatam.com</div>
+  <div class="cover-date">Fecha del análisis: 16 de junio, 2026 · Inspección en vivo de señales del servidor e índice de Google</div>
+  <div class="score-circle">
+    <div class="score-num">40</div>
+    <div class="score-denom">/ 100</div>
+  </div>
+  <div class="score-label">Puntuación de Salud SEO</div>
+</div>
+
+<!-- ================================================================ INTRO -->
+<div class="container">
+
+  <div class="section-header">
+    <span class="section-icon">👋</span>
+    <h2 class="section-title">¿Para qué sirve este reporte?</h2>
+  </div>
+
+  <div class="info-box">
+    <h3>Antes de empezar — ¿Qué es el SEO?</h3>
+    <p>SEO (Search Engine Optimization) es el conjunto de acciones que hacen que tu sitio aparezca más arriba en Google cuando alguien busca <strong>"software para estudios fitness"</strong> o <strong>"app de reservas para pilates en México"</strong>. Buen SEO = más visitantes sin pagar publicidad. En 2026 se le suma un frente nuevo: que ChatGPT, Google AI y Perplexity puedan <em>leer</em> y recomendar el sitio cuando un dueño de gimnasio le pregunta a una IA cuál software elegir.</p>
+  </div>
+
+  <p>Este análisis se realizó el <strong>16 de junio de 2026</strong> inspeccionando <strong>www.fitcolatam.com</strong> a través de múltiples señales en vivo: comportamiento del servidor ante agentes externos (incluyendo robots de Google y de las IAs), estado del índice de Google para el dominio y sus subdominios, presencia en plataformas de comparación de software, y verificación de arquitectura técnica. Se incorporan también los hallazgos confirmados del análisis del 15 de junio sobre el HTML interno de las páginas clave.</p>
+
+  <div class="highlight-green">
+    <h3>✅ Qué mejoró desde el análisis anterior (21 de mayo)</h3>
+    <p style="margin-bottom:6px;">Para ser justos, hay avances reales respecto al reporte previo:</p>
+    <p style="margin:0; font-size:14px;">
+      → La página de inicio <strong>ya tiene meta-description y etiqueta canonical</strong> bien configuradas.<br>
+      → Ya existe una <strong>página de prensa</strong> (<code>/software/prensa/</code>).<br>
+      → Existe un archivo <strong>llms.txt</strong> en la raíz — un buen primer paso para visibilidad en IAs.<br>
+      → El subdominio <code>softwarefitness.fitcolatam.com</code>, que duplicaba contenido, <strong>ya no aparece en el índice de Google</strong>.<br>
+      → El sitio migró a una arquitectura más moderna (WordPress + Elementor para el inicio, SPAs para páginas clave).
+    </p>
+  </div>
+
+  <p>El desafío es que esa misma migración introdujo problemas nuevos que se detallan abajo. Y hoy se confirma un hallazgo adicional que afecta directamente la visibilidad ante las Inteligencias Artificiales. La buena noticia: casi todo se corrige con configuración, sin reconstruir nada.</p>
+
+  <!-- ================================================================ SCORE -->
+  <div class="section-header">
+    <span class="section-icon">📊</span>
+    <h2 class="section-title">Puntuación General</h2>
+  </div>
+
+  <div class="overall-score-box">
+    <div class="ov-num">40</div>
+    <div class="ov-right">
+      <h2>Necesita atención urgente</h2>
+      <p>El sitio está fragmentado en demasiados subdominios, las páginas más importantes para vender siguen vacías o bloqueadas para Google y las IAs, y la arquitectura técnica dificulta que el buscador concentre fuerza en las páginas correctas. Todo es solucionable.</p>
+      <div class="ov-bar"><div class="ov-bar-fill"></div></div>
+      <p style="margin-top:8px; font-size:12px; opacity:0.6;">Con el plan de 90 días → meta: 70–74 / 100</p>
+    </div>
+  </div>
+
+  <div class="score-grid">
+    <div class="score-card red">
+      <div class="cat">SEO Técnico</div>
+      <div class="val">33<span style="font-size:18px;font-weight:400">/100</span></div>
+      <div class="bar"><div class="bar-fill" style="width:33%"></div></div>
+      <div class="bar-label">Servidor bloquea IAs · páginas SPA vacías</div>
+    </div>
+    <div class="score-card orange">
+      <div class="cat">Calidad del Contenido</div>
+      <div class="val">48<span style="font-size:18px;font-weight:400">/100</span></div>
+      <div class="bar"><div class="bar-fill" style="width:48%"></div></div>
+      <div class="bar-label">Blog amplio pero sin FAQ ni datos estructurados</div>
+    </div>
+    <div class="score-card yellow">
+      <div class="cat">SEO On-Page</div>
+      <div class="val">50<span style="font-size:18px;font-weight:400">/100</span></div>
+      <div class="bar"><div class="bar-fill" style="width:50%"></div></div>
+      <div class="bar-label">Home OK · SPAs con metadatos pobres</div>
+    </div>
+    <div class="score-card red">
+      <div class="cat">Datos Estructurados</div>
+      <div class="val">25<span style="font-size:18px;font-weight:400">/100</span></div>
+      <div class="bar"><div class="bar-fill" style="width:25%"></div></div>
+      <div class="bar-label">Sin schema en páginas de venta</div>
+    </div>
+    <div class="score-card yellow">
+      <div class="cat">Velocidad del Sitio</div>
+      <div class="val">50<span style="font-size:18px;font-weight:400">/100</span></div>
+      <div class="bar"><div class="bar-fill" style="width:50%"></div></div>
+      <div class="bar-label">A medir (Elementor + React/Lovable)</div>
+    </div>
+    <div class="score-card red">
+      <div class="cat">Visibilidad en IA</div>
+      <div class="val">28<span style="font-size:18px;font-weight:400">/100</span></div>
+      <div class="bar"><div class="bar-fill" style="width:28%"></div></div>
+      <div class="bar-label">Bots de IA bloqueados · precios en subdominio separado</div>
+    </div>
+  </div>
+
+  <!-- SEMÁFORO -->
+  <div class="section-header">
+    <span class="section-icon">🚦</span>
+    <h2 class="section-title">Resumen de Problemas Encontrados</h2>
+  </div>
+
+  <div class="traffic-grid">
+    <div class="traffic-card">
+      <div class="traffic-light">🔴</div>
+      <div class="traffic-label">Críticos</div>
+      <div class="traffic-count" style="color:#ff4757">6</div>
+      <div class="traffic-desc">Arreglar esta semana</div>
+    </div>
+    <div class="traffic-card">
+      <div class="traffic-light">🟠</div>
+      <div class="traffic-label">Importantes</div>
+      <div class="traffic-count" style="color:#e67e22">7</div>
+      <div class="traffic-desc">Arreglar en el primer mes</div>
+    </div>
+    <div class="traffic-card">
+      <div class="traffic-light">🟡</div>
+      <div class="traffic-label">Mejoras</div>
+      <div class="traffic-count" style="color:#d4ac0d">8</div>
+      <div class="traffic-desc">Optimizar en 90 días</div>
+    </div>
+  </div>
+
+</div>
+
+<div class="page-break"></div>
+
+<!-- ================================================================ CRÍTICOS -->
+<div class="container">
+
+  <div class="section-header">
+    <span class="section-icon">🔴</span>
+    <h2 class="section-title">Problemas Críticos — Arreglar Esta Semana</h2>
+  </div>
+
+  <p style="margin-bottom:20px; color:#666;">Estos son los problemas que más daño le hacen al sitio ahora mismo. Varios se corrigen en horas. Ignorarlos es como tener la vitrina principal de la tienda tapada con una cortina.</p>
+
+  <!-- C1 NUEVO -->
+  <div class="issue-card critical">
+    <div class="issue-header">
+      <span class="issue-badge badge-critical">🔴 Crítico</span>
+      <span class="issue-title">C1 — El servidor bloquea con 403 a todos los robots de IA (ChatGPT, Claude, Perplexity) <span class="new-badge">Nuevo</span></span>
+    </div>
+    <div class="issue-body">
+      <div class="what"><strong>¿Qué pasa?</strong> Al intentar acceder hoy (16 de junio) a <code>fitcolatam.com</code> desde agentes externos que imitan a <code>GPTBot</code> (OpenAI/ChatGPT), <code>ClaudeBot</code> (Anthropic) y <code>PerplexityBot</code>, el servidor devolvió <strong>HTTP 403 Forbidden</strong> en todos los casos. Esto significa que estos crawlers están siendo bloqueados activamente por la configuración del servidor o del firewall (WAF). El acceso de Googlebot parece funcionar dado que el sitio sí aparece indexado, pero los bots de las IAs generativas quedan fuera.</div>
+      <div class="why">💡 <strong>¿Por qué importa?</strong> Cada vez más dueños de estudios fitness preguntan a ChatGPT, Perplexity o Google AI "¿cuál es el mejor software para mi estudio en Lima?". Para que estas IAs citen a Fitco, sus robots deben poder leer el sitio. Con el 403 activo, Fitco es <em>literalmente invisible</em> para esos sistemas. Es como aparecer en el directorio telefónico pero con el número equivocado.</div>
+      <div class="fix">
+        <div class="fix-label">✅ Solución</div>
+        Revisar la configuración del WAF / CDN (Cloudflare u otro) y del archivo <code>robots.txt</code>. Asegurarse de que los siguientes User-Agents tengan acceso sin restricción: <code>GPTBot</code>, <code>OAI-SearchBot</code>, <code>ClaudeBot</code>, <code>anthropic-ai</code>, <code>PerplexityBot</code>, <code>GoogleExtended</code> (Google AI), <code>Bingbot</code> (Microsoft Copilot). Verificar que no haya reglas de bloqueo por volumen de peticiones que afecten a estos agentes.
+      </div>
+    </div>
+  </div>
+
+  <!-- C2 -->
+  <div class="issue-card critical">
+    <div class="issue-header">
+      <span class="issue-badge badge-critical">🔴 Crítico</span>
+      <span class="issue-title">C2 — Las páginas de Precios y Pilates salen VACÍAS para Google y las IAs</span>
+    </div>
+    <div class="issue-body">
+      <div class="what"><strong>¿Qué pasa?</strong> Al descargar el HTML de <code>/precios/</code> y <code>/pilates/</code> tal como lo hace un robot de Google, ambas páginas llegan <strong>completamente vacías</strong>: solo el título y un par de etiquetas, sin texto, planes, precios ni botones. El contenido se "arma" después con JavaScript en el navegador. Son páginas construidas con Lovable (generador tipo SPA) que no entregan el contenido listo desde el servidor. Además, se detectó que la página de precios también existe como subdominio separado en <code>precios.fitcolatam.com</code>, fragmentando aún más la autoridad.</div>
+      <div class="why">💡 <strong>¿Por qué importa?</strong> <code>/precios/</code> es la página que <em>convierte</em> visitantes en clientes — la más importante comercialmente. Si Google y las IAs la ven vacía, no la pueden posicionar ni recomendar. Es como tener tu lista de precios escrita con tinta invisible.</div>
+      <div class="fix">
+        <div class="fix-label">✅ Solución</div>
+        Activar <strong>prerenderizado / SSR</strong> para estas páginas (entregar el HTML ya armado). La prueba de que se puede: <code>/wellness/</code> —hecha con la misma tecnología— SÍ entrega su contenido completo. Replicar esa configuración en precios, pilates y el resto de disciplinas. Verificar después en Google Search Console → Inspección de URL → "Ver página analizada". Además, decidir si <code>precios.fitcolatam.com</code> se elimina o se redirige a la URL principal.
+      </div>
+    </div>
+  </div>
+
+  <!-- C3 -->
+  <div class="issue-card critical">
+    <div class="issue-header">
+      <span class="issue-badge badge-critical">🔴 Crítico</span>
+      <span class="issue-title">C3 — El sitio está fragmentado en 4 subdominios que Google ve como sitios distintos</span>
+    </div>
+    <div class="issue-body">
+      <div class="what"><strong>¿Qué pasa?</strong> El contenido de Fitco está repartido entre <code>www.fitcolatam.com</code>, <code>blog.fitcolatam.com</code>, <code>precios.fitcolatam.com</code> y <code>soporte.fitcolatam.com</code>. Para Google, un subdominio es casi "otro sitio web". Toda la autoridad generada por los 200+ artículos del blog y las páginas de soporte no se transfiere plenamente al dominio principal donde están las páginas de venta.</div>
+      <div class="why">💡 <strong>¿Por qué importa?</strong> Es como tener 4 tiendas distintas en vez de una grande. Cada una acumula su propia reputación por separado y ninguna llega a ser tan fuerte como si estuvieran unidas. La tienda que más necesita autoridad (la de ventas, en www) es la que menos recibe.</div>
+      <div class="fix">
+        <div class="fix-label">✅ Solución</div>
+        A mediano plazo, evaluar migrar el blog a <code>www.fitcolatam.com/blog/</code> (subcarpeta) para que todos sus artículos sumen al dominio principal. A corto plazo: asegurarse de que el blog enlace frecuentemente a las páginas de venta de <code>www</code>, y decidir si <code>precios.fitcolatam.com</code> se consolida en la URL principal. Mientras tanto, unificar los menús para que todo el tráfico pase por el dominio principal.
+      </div>
+    </div>
+  </div>
+
+  <!-- C4 -->
+  <div class="issue-card critical">
+    <div class="issue-header">
+      <span class="issue-badge badge-critical">🔴 Crítico</span>
+      <span class="issue-title">C4 — Muchas páginas casi iguales compiten por "software fitness México"</span>
+    </div>
+    <div class="issue-body">
+      <div class="what"><strong>¿Qué pasa?</strong> Google tiene indexadas varias páginas que dicen casi lo mismo sobre México: <code>/software-fitness-en-mexico/</code>, <code>/app-reservas-para-estudios-fitness-mexico-1/</code>, <code>/software-para-duenos-estudios-fitness-en-mexico/</code>, <code>/software-fitness/ciudad-de-mexico/</code> y <code>/ciudad-de-mexico-2/</code>. El mismo problema se repite con otros países de LATAM.</div>
+      <div class="why">💡 <strong>¿Por qué importa?</strong> Cuando Google ve muchas páginas casi idénticas no sabe cuál mostrar, así que reparte la fuerza entre todas y no posiciona ninguna bien. Es como tener 6 vendedores gritando lo mismo a la vez: nadie destaca.</div>
+      <div class="fix">
+        <div class="fix-label">✅ Solución</div>
+        Elegir <strong>una</strong> página maestra por país, redirigir (301) todas las demás hacia ella y repetir el ejercicio con Colombia, Perú, Chile, Argentina. La página elegida debe ser la más completa y con mejor contenido, no necesariamente la más antigua.
+      </div>
+    </div>
+  </div>
+
+  <!-- C5 -->
+  <div class="issue-card critical">
+    <div class="issue-header">
+      <span class="issue-badge badge-critical">🔴 Crítico</span>
+      <span class="issue-title">C5 — La página de muestra de WordPress sigue indexada en Google</span>
+    </div>
+    <div class="issue-body">
+      <div class="what"><strong>¿Qué pasa?</strong> <code>/sample-page/</code> —la página de relleno que WordPress crea al instalarse— sigue apareciendo en Google con contenido a medio terminar ("Software fitness en Querétaro…"). Este problema ya fue detectado en el análisis anterior y aún no se ha corregido.</div>
+      <div class="why">💡 <strong>¿Por qué importa?</strong> Es una página sin valor que ensucia la imagen del sitio y consume la atención que Google debería dedicar a las páginas importantes. Da sensación de descuido a cualquiera que la encuentre buscando en Google.</div>
+      <div class="fix">
+        <div class="fix-label">✅ Solución</div>
+        Marcarla como "no indexar" con una etiqueta <code>&lt;meta name="robots" content="noindex"&gt;</code> o eliminarla directamente. Tarea de 15 minutos en el panel de WordPress. Revisar también si hay otras páginas de prueba o plantilla en el mismo estado.
+      </div>
+    </div>
+  </div>
+
+  <!-- C6 -->
+  <div class="issue-card critical">
+    <div class="issue-header">
+      <span class="issue-badge badge-critical">🔴 Crítico</span>
+      <span class="issue-title">C6 — Las páginas SPA filtran la marca "Lovable" y no tienen etiqueta canonical</span>
+    </div>
+    <div class="issue-body">
+      <div class="what"><strong>¿Qué pasa?</strong> En el código de <code>/precios/</code>, <code>/pilates/</code> y <code>/wellness/</code> el "autor" declarado es <code>Lovable</code>, la cuenta de redes asociada es <code>@Lovable</code>, y la imagen que se muestra al compartir en redes está alojada en un servidor de Lovable (<code>...r2.dev</code>), no en el dominio de Fitco. Además, ninguna de estas páginas tiene etiqueta canonical, lo que genera riesgo de duplicación.</div>
+      <div class="why">💡 <strong>¿Por qué importa?</strong> Cuando alguien comparte la página de precios en WhatsApp o LinkedIn, la vista previa puede mostrar datos de la herramienta de construcción en vez de la marca Fitco. Las imágenes en servidor externo pueden desaparecer dejando enlaces "rotos". Y sin canonical, Google puede tratar distintas variantes de la URL como páginas separadas.</div>
+      <div class="fix">
+        <div class="fix-label">✅ Solución</div>
+        Reemplazar las etiquetas <code>author</code> y <code>twitter:site</code> por las de Fitco. Subir las imágenes de compartir (og:image) al propio dominio. Agregar una canonical autoreferenciada en cada página SPA. Todo configurable en la plantilla de Lovable sin tocar código.
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="page-break"></div>
+
+<!-- ================================================================ IMPORTANTES -->
+<div class="container">
+
+  <div class="section-header">
+    <span class="section-icon">🟠</span>
+    <h2 class="section-title">Problemas Importantes — Resolver en el Primer Mes</h2>
+  </div>
+
+  <div class="issue-card high">
+    <div class="issue-header">
+      <span class="issue-badge badge-high">🟠 Importante</span>
+      <span class="issue-title">H1 — El sitio mezcla "www" y sin "www" en sus propios enlaces</span>
+    </div>
+    <div class="issue-body">
+      <div class="what"><strong>¿Qué pasa?</strong> El menú principal y la home usan <code>www.fitcolatam.com</code>, pero los enlaces de "Nosotros", "Partners" y "Prensa" del pie de página apuntan a <code>fitcolatam.com/software/...</code> (sin www). Son técnicamente dos direcciones distintas para el mismo sitio.</div>
+      <div class="why">💡 <strong>¿Por qué importa?</strong> Google puede ver dos sitios donde hay uno solo, repartiendo la autoridad que debería concentrarse. Lo correcto es elegir una versión y que todo el sitio use solo esa.</div>
+      <div class="fix"><div class="fix-label">✅ Solución</div>Definir <code>www.fitcolatam.com</code> como dominio único, redirigir (301) todo lo que esté sin "www" hacia él y corregir los enlaces internos del pie de página.</div>
+    </div>
+  </div>
+
+  <div class="issue-card high">
+    <div class="issue-header">
+      <span class="issue-badge badge-high">🟠 Importante</span>
+      <span class="issue-title">H2 — Las páginas clave siguen siendo ilegibles para las IAs pese a tener llms.txt</span>
+    </div>
+    <div class="issue-body">
+      <div class="what"><strong>¿Qué pasa?</strong> El dominio principal tiene un archivo <code>llms.txt</code> — eso está bien y es un buen punto de partida. El problema es doble: (1) el servidor bloquea con 403 a los bots de IA (C1), y (2) las páginas de precios y disciplinas salen vacías para quienes sí logran entrar (C2). El <code>llms.txt</code> sirve para que la IA <em>descubra</em> qué es Fitco, pero no reemplaza que cada página sea legible por sí sola.</div>
+      <div class="why">💡 <strong>¿Por qué importa?</strong> Cuando un dueño de estudio pregunta a una IA "¿cuál es el mejor software para mi pilates studio en Lima?", la IA no puede recomendar en detalle a Fitco si no puede leer los planes, precios ni funciones.</div>
+      <div class="fix"><div class="fix-label">✅ Solución</div>Resolver primero C1 (desbloquear bots) y C2 (SSR en SPAs). Luego revisar que el <code>llms.txt</code> liste únicamente las URLs <strong>canónicas</strong> correctas —no las duplicadas de México ni subdominios— y que describa bien los mercados donde opera Fitco.</div>
+    </div>
+  </div>
+
+  <div class="issue-card high">
+    <div class="issue-header">
+      <span class="issue-badge badge-high">🟠 Importante</span>
+      <span class="issue-title">H3 — Las meta descriptions de las páginas SPA son demasiado pobres</span>
+    </div>
+    <div class="issue-body">
+      <div class="what"><strong>¿Qué pasa?</strong> La descripción de <code>/pilates/</code> es literalmente "Impulsa tu estudio de pilates con Fitco" — 5 palabras. La home, en cambio, tiene una descripción rica y orientada a búsquedas. Las páginas de disciplina y precios se quedaron cortas.</div>
+      <div class="why">💡 <strong>¿Por qué importa?</strong> Esa descripción es el texto que aparece debajo del título en Google. Una buena descripción gana más clics; una genérica los pierde frente a la competencia.</div>
+      <div class="fix"><div class="fix-label">✅ Solución</div>Escribir una meta-description de 140–160 caracteres por página con la búsqueda objetivo y una propuesta de valor concreta. Ejemplo para pilates: <em>"Software de gestión para estudios de pilates en LATAM. Reservas en línea, app con tu marca, pagos locales y soporte en español. Empieza gratis."</em></div>
+    </div>
+  </div>
+
+  <div class="issue-card high">
+    <div class="issue-header">
+      <span class="issue-badge badge-high">🟠 Importante</span>
+      <span class="issue-title">H4 — La navegación y la marca cambian entre las distintas partes del sitio</span>
+    </div>
+    <div class="issue-body">
+      <div class="what"><strong>¿Qué pasa?</strong> El sitio WordPress, las páginas Lovable y el blog tienen menús distintos. La marca aparece a veces como <strong>"Fitco"</strong> y otras como <strong>"FITco"</strong>. En el pie del blog hay un correo con error de tipeo: <code>ventas@fitcolatam.como</code> (sobra la "o" final).</div>
+      <div class="why">💡 <strong>¿Por qué importa?</strong> La inconsistencia confunde al usuario, debilita la marca y hace que el sitio se sienta como varios pedazos pegados. Google también valora la coherencia y la calidad como señal de confianza (E-E-A-T).</div>
+      <div class="fix"><div class="fix-label">✅ Solución</div>Unificar menú, logotipo y la forma de escribir la marca ("Fitco") en todas las propiedades. Corregir el correo del pie del blog. Definir un componente de header/footer estándar y usarlo en todos los entornos.</div>
+    </div>
+  </div>
+
+  <div class="issue-card high">
+    <div class="issue-header">
+      <span class="issue-badge badge-high">🟠 Importante</span>
+      <span class="issue-title">H5 — Sin datos estructurados (Schema) en las páginas de venta</span>
+    </div>
+    <div class="issue-body">
+      <div class="what"><strong>¿Qué pasa?</strong> No se pudo confirmar que las páginas de precios y disciplinas tengan datos estructurados (el "idioma especial" que ayuda a Google a entender precios, reseñas y preguntas frecuentes). Las páginas SPA, al salir vacías, con casi total certeza no los tienen.</div>
+      <div class="why">💡 <strong>¿Por qué importa?</strong> Sin Schema, Fitco no puede aparecer con estrellas de reseñas, precios o preguntas frecuentes destacadas en Google —resultados que se ven más grandes y reciben hasta 3 veces más clics que los resultados normales.</div>
+      <div class="fix"><div class="fix-label">✅ Solución</div>Verificar con la prueba de resultados enriquecidos de Google (<code>search.google.com/test/rich-results</code>) y agregar: <code>Organization</code> (home), <code>SoftwareApplication</code> (precios), <code>FAQPage</code> (precios y disciplinas), <code>BreadcrumbList</code> (todas).</div>
+    </div>
+  </div>
+
+  <div class="issue-card high">
+    <div class="issue-header">
+      <span class="issue-badge badge-high">🟠 Importante</span>
+      <span class="issue-title">H6 — Los artículos del blog no muestran autor (señal de confianza E-E-A-T)</span>
+    </div>
+    <div class="issue-body">
+      <div class="what"><strong>¿Qué pasa?</strong> Los artículos del blog no muestran de forma clara quién los escribió ni sus credenciales. En algunos aparece "escrito por: Compara Software", de un tercero, lo que genera inconsistencia de autoría.</div>
+      <div class="why">💡 <strong>¿Por qué importa?</strong> Google da más confianza —y mejor posicionamiento— al contenido firmado por personas reales con experiencia verificable. El contenido anónimo se posiciona peor bajo las reglas de calidad de 2025–2026 (política E-E-A-T de Google).</div>
+      <div class="fix"><div class="fix-label">✅ Solución</div>Crear perfiles de autor (nombre, foto, cargo, LinkedIn) y asignarlos a los artículos, empezando por los más visitados. Añadir el schema <code>Person</code> en cada perfil de autor.</div>
+    </div>
+  </div>
+
+  <div class="issue-card high">
+    <div class="issue-header">
+      <span class="issue-badge badge-high">🟠 Importante</span>
+      <span class="issue-title">H7 — La página /competencia/ no posiciona para búsquedas comparativas de alta intención</span>
+    </div>
+    <div class="issue-body">
+      <div class="what"><strong>¿Qué pasa?</strong> La página <code>/competencia/</code> —donde un prospecto decide si elige Fitco o un rival— no aparece en los primeros resultados de Google para búsquedas como <em>"alternativa a Mindbody LATAM"</em>, <em>"fitco vs mindbody"</em> o <em>"mejor software gimnasios peru"</em>. Peor aún: Crossfy tiene una página <code>/comparar/fitco</code> indexada en Google donde <em>ellos describen a Fitco</em> antes de que lo haga Fitco mismo.</div>
+      <div class="why">💡 <strong>¿Por qué importa?</strong> Las búsquedas comparativas son las de mayor intención de compra: quien busca "alternativa a Mindbody" ya sabe lo que quiere y está listo para contratar. Perder esa búsqueda es perder al cliente en el momento de mayor disposición a comprar.</div>
+      <div class="fix"><div class="fix-label">✅ Solución</div>Crear sub-páginas dedicadas por competidor: <code>/vs-mindbody/</code>, <code>/vs-virtuagym/</code>, <code>/vs-agendapro/</code>, con tabla comparativa HTML, FAQ, precios reales y testimonios de migración. Cada una optimizada para la keyword exacta de búsqueda.</div>
+    </div>
+  </div>
+
+</div>
+
+<div class="page-break"></div>
+
+<!-- ================================================================ MEJORAS -->
+<div class="container">
+
+  <div class="section-header">
+    <span class="section-icon">🟡</span>
+    <h2 class="section-title">Mejoras Adicionales — Para el Trimestre</h2>
+  </div>
+
+  <table class="plan-table">
+    <thead>
+      <tr>
+        <th style="width:40%">Qué mejorar</th>
+        <th style="width:35%">Por qué importa</th>
+        <th style="width:12%">Esfuerzo</th>
+        <th style="width:13%">Impacto</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Consolidar páginas por país</strong><br><span style="color:#aaa;font-size:12px;">Colombia, Perú, Chile, Argentina — mismo criterio que México</span></td>
+        <td>El problema de canibalización no es solo de México. Una sola página fuerte por país posiciona mucho mejor que varias mediocres.</td>
+        <td><span class="effort-tag effort-med">Medio</span></td>
+        <td>⭐⭐⭐⭐</td>
+      </tr>
+      <tr>
+        <td><strong>Configurar hreflang por país</strong><br><span style="color:#aaa;font-size:12px;">Indicarle a Google qué página es para cada mercado</span></td>
+        <td>Fitco opera en Perú, Colombia, México, Chile y Argentina. Sin hreflang, Google puede mostrar la página equivocada al usuario equivocado.</td>
+        <td><span class="effort-tag effort-med">Medio</span></td>
+        <td>⭐⭐⭐</td>
+      </tr>
+      <tr>
+        <td><strong>Medir Core Web Vitals con PageSpeed Insights</strong><br><span style="color:#aaa;font-size:12px;">Velocidad real de la home (Elementor) y las SPAs (React/Lovable)</span></td>
+        <td>La home usa Elementor (generalmente pesado) y las disciplinas usan React. Medir antes de optimizar evita trabajo innecesario.</td>
+        <td><span class="effort-tag effort-low">Bajo</span></td>
+        <td>⭐⭐⭐</td>
+      </tr>
+      <tr>
+        <td><strong>Revisar robots.txt y sitemap.xml</strong><br><span style="color:#aaa;font-size:12px;">El servidor devolvió 403 al intentar acceder hoy</span></td>
+        <td>Hay que confirmar que el sitemap no liste páginas duplicadas ni subdominios y que las URLs maestras sean las que Google indexa.</td>
+        <td><span class="effort-tag effort-low">Bajo</span></td>
+        <td>⭐⭐⭐</td>
+      </tr>
+      <tr>
+        <td><strong>Reclamar perfiles en G2 y Capterra</strong><br><span style="color:#aaa;font-size:12px;">Ya existe una comparativa Mindbody vs Fitco en Capterra.mx</span></td>
+        <td>Con 1.400+ centros, Fitco debería tener reseñas en estos sitios. Aparecen frecuentemente en búsquedas de "mejor software fitness" y son fuentes que las IAs citan directamente.</td>
+        <td><span class="effort-tag effort-med">Medio</span></td>
+        <td>⭐⭐⭐⭐</td>
+      </tr>
+      <tr>
+        <td><strong>Enlazar el blog hacia las páginas de venta</strong><br><span style="color:#aaa;font-size:12px;">200+ artículos sin aprovechar su potencial de autoridad</span></td>
+        <td>Los artículos existentes pueden transferir autoridad hacia <code>/precios/</code> y páginas de disciplina si se enlazan correctamente desde el cuerpo del artículo.</td>
+        <td><span class="effort-tag effort-low">Bajo</span></td>
+        <td>⭐⭐⭐</td>
+      </tr>
+      <tr>
+        <td><strong>Verificar páginas de "gracias" y promos vencidas</strong><br><span style="color:#aaa;font-size:12px;">Confirmar si siguen indexadas</span></td>
+        <td>Páginas de confirmación o promociones antiguas indexadas dañan la imagen y consumen el "presupuesto de rastreo" de Google que debería dedicarse a páginas útiles.</td>
+        <td><span class="effort-tag effort-low">Bajo</span></td>
+        <td>⭐⭐</td>
+      </tr>
+      <tr>
+        <td><strong>Reemplazar los placeholders "$0 / 0%" del demo de Wellness</strong><br><span style="color:#aaa;font-size:12px;">El panel de ejemplo muestra puros ceros</span></td>
+        <td>Un dashboard de demostración con cifras en cero no transmite valor. Números realistas (aunque ficticios) muestran el potencial del producto y aumentan la conversión.</td>
+        <td><span class="effort-tag effort-low">Bajo</span></td>
+        <td>⭐⭐</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="highlight-blue">
+    <h3 style="color:#3949ab;margin-top:0;">🔍 Qué quedó "por verificar" y por qué</h3>
+    <p style="margin:0;font-size:14px;">Para ser transparentes: el servidor devolvió HTTP 403 a todos los intentos de acceso externo durante esta auditoría, lo que impidió confirmar directamente: (1) el contenido exacto de <code>robots.txt</code> y <code>sitemap.xml</code>, (2) el <code>llms.txt</code> completo y su calidad, (3) si la home tiene datos estructurados ocultos en su HTML, (4) la velocidad real en PageSpeed Insights, y (5) qué páginas de "gracias" o promos siguen indexadas. Todos estos puntos están incluidos como tareas concretas arriba. Para verificarlos, usar Google Search Console (acceso interno), PageSpeed Insights y el Rich Results Test de Google.</p>
+  </div>
+
+</div>
+
+<div class="page-break"></div>
+
+<!-- ================================================================ PLAN DE ACCIÓN -->
+<div class="container">
+
+  <div class="section-header">
+    <span class="section-icon">🗓️</span>
+    <h2 class="section-title">Plan de Acción — 90 Días</h2>
+  </div>
+
+  <div class="timeline">
+
+    <div class="timeline-item">
+      <div class="timeline-left">
+        <div class="timeline-dot w1">1</div>
+        <div class="timeline-line"></div>
+      </div>
+      <div class="timeline-right">
+        <div class="timeline-period">Semanas 1–2 · Detener el daño</div>
+        <div class="timeline-title">🔴 Abrir las puertas y hacer legibles las páginas que venden</div>
+        <ul class="timeline-tasks">
+          <li>Revisar WAF / CDN y <code>robots.txt</code>: permitir <code>GPTBot</code>, <code>ClaudeBot</code>, <code>PerplexityBot</code>, <code>GoogleExtended</code></li>
+          <li>Activar prerenderizado/SSR en <code>/precios/</code>, <code>/pilates/</code> y demás disciplinas (replicar lo que ya funciona en <code>/wellness/</code>)</li>
+          <li>Verificar el resultado en Google Search Console → Inspección de URL → "Ver página analizada"</li>
+          <li>Marcar como "no indexar" / redirigir <code>/sample-page/</code></li>
+          <li>Agregar canonical a todas las páginas SPA · corregir metadatos de marca Lovable · mover og:image al dominio propio</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-left">
+        <div class="timeline-dot w2">2</div>
+        <div class="timeline-line"></div>
+      </div>
+      <div class="timeline-right">
+        <div class="timeline-period">Semanas 3–4 · Consolidación y consistencia</div>
+        <div class="timeline-title">📋 Un solo sitio, una sola voz</div>
+        <ul class="timeline-tasks">
+          <li>Elegir 1 página maestra para México y redirigir (301) todas las duplicadas · repetir por país</li>
+          <li>Decidir el destino de <code>precios.fitcolatam.com</code>: redirigir a la URL principal o consolidar</li>
+          <li>Unificar www vs no-www en todo el sitio y corregir los enlaces del pie de página</li>
+          <li>Unificar menú, logotipo y marca ("Fitco") en todas las propiedades · corregir el correo del blog</li>
+          <li>Escribir meta-descriptions de 140–160 caracteres para todas las páginas de disciplina y precios</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-left">
+        <div class="timeline-dot m2">3</div>
+        <div class="timeline-line"></div>
+      </div>
+      <div class="timeline-right">
+        <div class="timeline-period">Mes 2 · Datos estructurados, autoridad y comparativas</div>
+        <div class="timeline-title">✍️ Que Google y las IAs entiendan y recomienden a Fitco</div>
+        <ul class="timeline-tasks">
+          <li>Implementar Schema: <code>Organization</code>, <code>SoftwareApplication</code>, <code>FAQPage</code> y <code>BreadcrumbList</code></li>
+          <li>Revisar y depurar el <code>llms.txt</code> (URLs canónicas correctas, descripción clara de mercados)</li>
+          <li>Crear perfiles de autor y asignarlos a los artículos del blog más visitados</li>
+          <li>Reclamar perfiles en G2 y Capterra · solicitar reseñas a 10 clientes activos</li>
+          <li>Crear sub-página <code>/vs-mindbody/</code> con comparativa profunda, tabla HTML y testimonios de migración</li>
+          <li>Consolidar páginas de Colombia, Perú, Chile, Argentina + implementar hreflang</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-left">
+        <div class="timeline-dot m3">4</div>
+      </div>
+      <div class="timeline-right">
+        <div class="timeline-period">Mes 3 · Velocidad, contenido estratégico y monitoreo</div>
+        <div class="timeline-title">🚀 Pulir, medir y reforzar</div>
+        <ul class="timeline-tasks">
+          <li>Medir Core Web Vitals con PageSpeed Insights y aplicar mejoras prioritarias</li>
+          <li>Revisar <code>robots.txt</code> y <code>sitemap.xml</code> · depurar páginas de "gracias" y promos vencidas</li>
+          <li>Crear sub-páginas <code>/vs-virtuagym/</code> y <code>/vs-agendapro/</code></li>
+          <li>Enlazar artículos del blog hacia <code>/precios/</code> y páginas de disciplina</li>
+          <li>Reemplazar placeholders "$0 / 0%" del demo de Wellness por cifras realistas</li>
+          <li>Evaluar migración de <code>blog.fitcolatam.com</code> a <code>www.fitcolatam.com/blog/</code></li>
+          <li>Monitoreo semanal manual en ChatGPT/Perplexity: verificar si Fitco es citado</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- PROYECCIÓN -->
+  <div class="overall-score-box" style="margin-top:32px;">
+    <div style="text-align:center;min-width:120px;">
+      <div style="font-size:14px;opacity:0.6;margin-bottom:4px;">HOY</div>
+      <div style="font-size:52px;font-weight:900;color:#ff6b6b;">40</div>
+      <div style="font-size:13px;opacity:0.5;">/ 100</div>
+    </div>
+    <div style="font-size:36px;opacity:0.4;">→</div>
+    <div style="text-align:center;min-width:120px;">
+      <div style="font-size:14px;opacity:0.6;margin-bottom:4px;">30 DÍAS</div>
+      <div style="font-size:52px;font-weight:900;color:#ffa502;">57</div>
+      <div style="font-size:13px;opacity:0.5;">/ 100</div>
+    </div>
+    <div style="font-size:36px;opacity:0.4;">→</div>
+    <div style="text-align:center;min-width:120px;">
+      <div style="font-size:14px;opacity:0.6;margin-bottom:4px;">90 DÍAS</div>
+      <div style="font-size:52px;font-weight:900;color:#2ed573;">72</div>
+      <div style="font-size:13px;opacity:0.5;">/ 100</div>
+    </div>
+    <div class="ov-right" style="flex:1;">
+      <h2 style="font-size:18px;">Proyección de mejora</h2>
+      <p>Desbloquear los bots de IA y activar el renderizado correcto de las páginas de precios y disciplinas (semanas 1–2) recupera ya la mayor parte de la visibilidad perdida. El plan completo lleva el sitio a zona "buena" (70+) sin reconstruir nada desde cero.</p>
+    </div>
+  </div>
+
+</div>
+
+<div class="page-break"></div>
+
+<!-- ================================================================ GLOSARIO -->
+<div class="container">
+
+  <div class="section-header">
+    <span class="section-icon">📚</span>
+    <h2 class="section-title">Glosario — Términos Clave Explicados</h2>
+  </div>
+
+  <div class="glossary-grid">
+    <div class="glossary-item">
+      <div class="glossary-term">SEO</div>
+      <div class="glossary-def">Search Engine Optimization — todo lo que se hace para que el sitio aparezca más arriba en Google de forma orgánica (sin pagar publicidad).</div>
+    </div>
+    <div class="glossary-item">
+      <div class="glossary-term">GEO (Generative Engine Optimization)</div>
+      <div class="glossary-def">El equivalente del SEO para las IAs: estructurar el contenido para que ChatGPT, Gemini, Perplexity y Claude citen y recomienden a Fitco en sus respuestas.</div>
+    </div>
+    <div class="glossary-item">
+      <div class="glossary-term">SPA / Renderizado JS</div>
+      <div class="glossary-def">Una "Single Page Application" arma su contenido con JavaScript en el navegador. Si no entrega el HTML ya listo desde el servidor, Google y las IAs ven la página vacía.</div>
+    </div>
+    <div class="glossary-item">
+      <div class="glossary-term">SSR / Prerenderizado</div>
+      <div class="glossary-def">Entregar la página ya "armada" desde el servidor para que cualquier robot la lea completa sin ejecutar JavaScript. Es la solución al problema C2.</div>
+    </div>
+    <div class="glossary-item">
+      <div class="glossary-term">HTTP 403 Forbidden</div>
+      <div class="glossary-def">El servidor rechaza activamente la petición de un robot. Es como que el portero no deje entrar a los bots de las IAs. Bloquea la capacidad de ser citado por ChatGPT y similares.</div>
+    </div>
+    <div class="glossary-item">
+      <div class="glossary-term">Canonical</div>
+      <div class="glossary-def">Instrucción que le dice a Google "esta es la versión oficial de la página; ignora las copias". Evita el problema de páginas duplicadas que se restan fuerza entre sí.</div>
+    </div>
+    <div class="glossary-item">
+      <div class="glossary-term">Canibalización de keywords</div>
+      <div class="glossary-def">Cuando varias páginas propias compiten por la misma búsqueda y se restan fuerza entre sí. Mejor una página fuerte que muchas mediocres.</div>
+    </div>
+    <div class="glossary-item">
+      <div class="glossary-term">Meta descripción</div>
+      <div class="glossary-def">El texto de 2–3 líneas que aparece debajo del título en Google. No cambia el ranking directamente, pero sí cuántos clics recibe la página.</div>
+    </div>
+    <div class="glossary-item">
+      <div class="glossary-term">Schema / Datos estructurados</div>
+      <div class="glossary-def">Código invisible (JSON-LD) que le explica a Google qué es cada cosa: precios, reseñas, preguntas frecuentes. Permite aparecer con estrellas y resultados destacados.</div>
+    </div>
+    <div class="glossary-item">
+      <div class="glossary-term">Hreflang</div>
+      <div class="glossary-def">Etiquetas que le dicen a Google "esta versión es para México, esta otra para Perú". Clave para empresas que operan en varios países hispanohablantes.</div>
+    </div>
+    <div class="glossary-item">
+      <div class="glossary-term">E-E-A-T</div>
+      <div class="glossary-def">Experiencia, Expertise, Autoridad y Confianza: los criterios con que Google evalúa si un sitio merece estar en los primeros resultados. Autores reales y datos verificables suman E-E-A-T.</div>
+    </div>
+    <div class="glossary-item">
+      <div class="glossary-term">llms.txt</div>
+      <div class="glossary-def">Archivo de texto que les explica a las IAs (ChatGPT, Perplexity, Claude) quién es la empresa y cuáles son sus páginas más importantes para que las incluya en sus respuestas.</div>
+    </div>
+    <div class="glossary-item">
+      <div class="glossary-term">Core Web Vitals</div>
+      <div class="glossary-def">Métricas de velocidad y estabilidad visual que Google usa como factor de ranking: qué tan rápido carga la página (LCP), si se mueve al cargar (CLS) y qué tan rápido responde (INP).</div>
+    </div>
+    <div class="glossary-item">
+      <div class="glossary-term">Subdominio vs subcarpeta</div>
+      <div class="glossary-def"><code>blog.sitio.com</code> (subdominio) es casi "otro sitio" para Google; <code>sitio.com/blog/</code> (subcarpeta) comparte toda la autoridad con el dominio principal. La subcarpeta es mejor para SEO.</div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ================================================================ FOOTER -->
+<div class="report-footer">
+  <div style="font-size:20px;margin-bottom:12px;">🏋️</div>
+  <div style="margin-bottom:8px;"><strong>Reporte SEO — www.fitcolatam.com</strong></div>
+  <div>Generado el 16 de junio de 2026 · Auditoría basada en inspección en vivo del servidor, índice de Google y señales técnicas del dominio</div>
+  <div style="margin-top:16px;border-top:1px solid rgba(255,255,255,0.1);padding-top:16px;font-size:12px;">
+    El hallazgo C1 (HTTP 403 a bots de IA) y la fragmentación en subdominios (C3) fueron confirmados en vivo el 16 de junio.<br>
+    Los demás hallazgos críticos e importantes fueron verificados sobre el código HTML real el 15 de junio.<br>
+    Los ítems marcados "a verificar" requieren acceso a Google Search Console, PageSpeed Insights y Rich Results Test.
+  </div>
+</div>
+
+</body>
+</html>
