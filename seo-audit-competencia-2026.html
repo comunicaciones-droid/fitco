@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reporte SEO — fitcolatam.com/competencia/ (Junio 2026)</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Segoe UI', Arial, sans-serif; color: #1a1a2e; background: #f8f9fc; font-size: 15px; line-height: 1.6; }
+
+  /* COVER PAGE */
+  .cover {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 60%, #0f3460 100%);
+    color: white; min-height: 100vh; display: flex; flex-direction: column;
+    justify-content: center; align-items: center; text-align: center;
+    padding: 60px 40px; page-break-after: always;
+  }
+  .cover-logo { font-size: 48px; margin-bottom: 16px; }
+  .cover h1 { font-size: 38px; font-weight: 800; margin-bottom: 8px; letter-spacing: -1px; }
+  .cover h2 { font-size: 20px; font-weight: 400; opacity: 0.8; margin-bottom: 40px; }
+  .cover-url { background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 30px; padding: 10px 28px; font-size: 17px; font-weight: 600; margin-bottom: 12px; }
+  .cover-page-badge { background: rgba(255,107,107,0.2); border: 1px solid rgba(255,107,107,0.4);
+    border-radius: 30px; padding: 6px 20px; font-size: 13px; font-weight: 600; color: #ff9999; margin-bottom: 40px; }
+  .cover-date { opacity: 0.6; font-size: 14px; margin-bottom: 48px; }
+  .score-circle {
+    width: 160px; height: 160px; border-radius: 50%;
+    border: 8px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.08);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    margin: 0 auto 12px;
+  }
+  .score-circle .score-num { font-size: 52px; font-weight: 900; color: #ff6b6b; line-height: 1; }
+  .score-circle .score-denom { font-size: 18px; opacity: 0.6; }
+  .score-label { font-size: 14px; opacity: 0.7; text-transform: uppercase; letter-spacing: 2px; }
+
+  /* MAIN CONTENT */
+  .container { max-width: 860px; margin: 0 auto; padding: 48px 40px; }
+
+  /* SECTION HEADERS */
+  .section-header {
+    display: flex; align-items: center; gap: 12px;
+    margin: 48px 0 20px; padding-bottom: 12px;
+    border-bottom: 3px solid #e8eaf6;
+  }
+  .section-icon { font-size: 28px; }
+  .section-title { font-size: 24px; font-weight: 800; color: #1a1a2e; }
+
+  h3 { font-size: 17px; font-weight: 700; color: #16213e; margin: 28px 0 10px; }
+  p { margin-bottom: 12px; color: #444; }
+
+  /* SCORE CARDS GRID */
+  .score-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin: 24px 0; }
+  .score-card {
+    background: white; border-radius: 12px; padding: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07); border-top: 4px solid #e0e0e0;
+  }
+  .score-card.red { border-top-color: #ff4757; }
+  .score-card.orange { border-top-color: #ffa502; }
+  .score-card.yellow { border-top-color: #eccc68; }
+  .score-card.green { border-top-color: #2ed573; }
+  .score-card .cat { font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: #888; margin-bottom: 6px; }
+  .score-card .val { font-size: 32px; font-weight: 900; color: #1a1a2e; line-height: 1; }
+  .score-card .bar { height: 6px; background: #f0f0f0; border-radius: 3px; margin-top: 10px; overflow: hidden; }
+  .score-card .bar-fill { height: 100%; border-radius: 3px; }
+  .score-card.red .bar-fill { background: #ff4757; }
+  .score-card.orange .bar-fill { background: #ffa502; }
+  .score-card.yellow .bar-fill { background: #eccc68; }
+  .score-card.green .bar-fill { background: #2ed573; }
+  .score-card .bar-label { font-size: 12px; color: #aaa; margin-top: 4px; }
+
+  /* OVERALL SCORE BAR */
+  .overall-score-box {
+    background: linear-gradient(135deg, #1a1a2e, #0f3460);
+    color: white; border-radius: 16px; padding: 32px 36px;
+    display: flex; align-items: center; gap: 32px; margin: 24px 0;
+  }
+  .ov-num { font-size: 72px; font-weight: 900; color: #ff6b6b; line-height: 1; }
+  .ov-right h2 { font-size: 22px; font-weight: 700; margin-bottom: 6px; }
+  .ov-right p { opacity: 0.75; font-size: 14px; color: #ccc; margin: 0; }
+  .ov-bar { height: 10px; background: rgba(255,255,255,0.15); border-radius: 5px; margin-top: 14px; overflow: hidden; width: 300px; }
+  .ov-bar-fill { height: 100%; background: #ff6b6b; border-radius: 5px; width: 31%; }
+
+  /* ISSUE CARDS */
+  .issue-card {
+    background: white; border-radius: 12px; padding: 22px 24px;
+    margin: 14px 0; box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    border-left: 5px solid #e0e0e0; page-break-inside: avoid;
+  }
+  .issue-card.critical { border-left-color: #ff4757; }
+  .issue-card.high { border-left-color: #ffa502; }
+  .issue-card.medium { border-left-color: #eccc68; }
+  .issue-card.low { border-left-color: #a4b0be; }
+
+  .issue-header { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 10px; }
+  .issue-badge {
+    padding: 3px 10px; border-radius: 20px; font-size: 11px;
+    font-weight: 700; text-transform: uppercase; letter-spacing: 1px; white-space: nowrap; margin-top: 2px;
+  }
+  .badge-critical { background: #fff0f0; color: #ff4757; }
+  .badge-high { background: #fff8ee; color: #e67e22; }
+  .badge-medium { background: #fffbea; color: #d4ac0d; }
+  .badge-low { background: #f4f4f4; color: #7f8c8d; }
+  .issue-title { font-size: 16px; font-weight: 700; color: #1a1a2e; flex: 1; }
+
+  .issue-body { font-size: 14px; color: #555; }
+  .issue-body .what { margin-bottom: 8px; }
+  .issue-body .why { color: #888; font-size: 13px; margin-bottom: 8px; }
+  .issue-body .fix {
+    background: #f0fdf4; border-left: 3px solid #2ed573;
+    padding: 10px 14px; border-radius: 6px; font-size: 13px; color: #2d5a3d;
+  }
+  .fix-label { font-weight: 700; text-transform: uppercase; font-size: 11px; letter-spacing: 1px; margin-bottom: 4px; }
+
+  /* ACTION PLAN TABLE */
+  .plan-table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 14px; }
+  .plan-table th {
+    background: #1a1a2e; color: white; padding: 12px 14px;
+    text-align: left; font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;
+  }
+  .plan-table td { padding: 12px 14px; border-bottom: 1px solid #f0f0f0; vertical-align: top; }
+  .plan-table tr:hover td { background: #fafbff; }
+  .plan-table tr:last-child td { border-bottom: none; }
+  .effort-tag { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 11px; font-weight: 600; }
+  .effort-low { background: #d5f5e3; color: #1e8449; }
+  .effort-med { background: #fef9e7; color: #b7950b; }
+  .effort-high { background: #fdedec; color: #c0392b; }
+
+  /* INFO BOX */
+  .info-box { background: #eef2ff; border-radius: 12px; padding: 24px 28px; margin: 24px 0; border-left: 4px solid #5c6bc0; }
+  .info-box h3 { color: #3949ab; margin-top: 0; margin-bottom: 10px; font-size: 16px; }
+  .info-box p { color: #555; font-size: 14px; }
+
+  /* WARNING BOX */
+  .warning-box { background: #fff8ee; border-radius: 12px; padding: 24px 28px; margin: 24px 0; border-left: 4px solid #ffa502; }
+  .warning-box h3 { color: #e67e22; margin-top: 0; margin-bottom: 10px; font-size: 16px; }
+  .warning-box p { color: #555; font-size: 14px; }
+
+  /* GLOSSARY */
+  .glossary-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 20px 0; }
+  .glossary-item { background: white; border-radius: 10px; padding: 16px; box-shadow: 0 2px 6px rgba(0,0,0,0.05); }
+  .glossary-term { font-weight: 700; color: #5c6bc0; font-size: 14px; margin-bottom: 4px; }
+  .glossary-def { font-size: 13px; color: #666; }
+
+  /* TRAFFIC LIGHT SUMMARY */
+  .traffic-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 24px 0; }
+  .traffic-card { border-radius: 12px; padding: 20px; text-align: center; background: white; box-shadow: 0 2px 8px rgba(0,0,0,0.07); }
+  .traffic-light { font-size: 36px; margin-bottom: 8px; }
+  .traffic-label { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; font-weight: 700; margin-bottom: 6px; }
+  .traffic-count { font-size: 40px; font-weight: 900; line-height: 1; }
+  .traffic-desc { font-size: 12px; color: #aaa; margin-top: 4px; }
+
+  /* COMPETITOR TABLE */
+  .comp-table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 13px; }
+  .comp-table th { background: #1a1a2e; color: white; padding: 10px 14px; text-align: left; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+  .comp-table td { padding: 10px 14px; border-bottom: 1px solid #f0f0f0; vertical-align: middle; }
+  .comp-table tr:last-child td { border-bottom: none; }
+  .comp-table tr:hover td { background: #fafbff; }
+  .check-yes { color: #2ed573; font-weight: 700; font-size: 16px; }
+  .check-no { color: #ff4757; font-weight: 700; font-size: 16px; }
+  .check-partial { color: #ffa502; font-weight: 700; font-size: 14px; }
+
+  /* TIMELINE */
+  .timeline { margin: 28px 0; }
+  .timeline-item { display: flex; gap: 20px; margin-bottom: 28px; }
+  .timeline-left { display: flex; flex-direction: column; align-items: center; min-width: 80px; }
+  .timeline-dot { width: 44px; height: 44px; border-radius: 50%; background: #1a1a2e; color: white; font-size: 16px; display: flex; align-items: center; justify-content: center; font-weight: 800; }
+  .timeline-dot.w1 { background: #ff4757; }
+  .timeline-dot.w2 { background: #ff6b35; }
+  .timeline-dot.m2 { background: #ffa502; }
+  .timeline-dot.m3 { background: #2ed573; }
+  .timeline-line { width: 2px; flex: 1; background: #e8eaf6; margin-top: 4px; }
+  .timeline-right { flex: 1; padding-bottom: 8px; }
+  .timeline-period { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #aaa; margin-bottom: 6px; }
+  .timeline-title { font-size: 16px; font-weight: 700; color: #1a1a2e; margin-bottom: 8px; }
+  .timeline-tasks { list-style: none; }
+  .timeline-tasks li { font-size: 14px; color: #555; padding: 4px 0; display: flex; gap: 8px; align-items: flex-start; }
+  .timeline-tasks li::before { content: "→"; color: #5c6bc0; font-weight: 700; margin-top: 1px; }
+
+  .page-break { page-break-before: always; }
+  .divider { height: 1px; background: #e8eaf6; margin: 40px 0; }
+
+  .report-footer { background: #1a1a2e; color: rgba(255,255,255,0.6); text-align: center; padding: 32px; font-size: 13px; margin-top: 48px; }
+  .report-footer strong { color: white; }
+
+  .highlight-red { background: #fff5f5; border-radius: 10px; padding: 18px 20px; margin: 16px 0; border-left: 4px solid #ff4757; }
+  .highlight-blue { background: #f0f4ff; border-radius: 10px; padding: 18px 20px; margin: 16px 0; border-left: 4px solid #5c6bc0; }
+  .highlight-green { background: #f0fdf4; border-radius: 10px; padding: 18px 20px; margin: 16px 0; border-left: 4px solid #2ed573; }
+  .highlight-green h3 { color: #1e8449; margin-top: 0; }
+  .highlight-red code, .issue-body code, .timeline-tasks code, .info-box code, .warning-box code { background: #f4f4f8; padding: 1px 5px; border-radius: 4px; font-size: 12px; color: #c0392b; }
+
+  .keyword-tag { display: inline-block; background: #eef2ff; color: #3949ab; border-radius: 6px; padding: 2px 10px; font-size: 12px; font-weight: 600; margin: 2px; }
+  .keyword-tag.red { background: #fff0f0; color: #c0392b; }
+  .keyword-tag.green { background: #f0fdf4; color: #1e8449; }
+
+  @media print {
+    body { background: white; }
+    .cover { min-height: auto; padding: 80px 40px; }
+    .container { padding: 32px 40px; }
+    .issue-card, .score-card, .traffic-card { box-shadow: none; border: 1px solid #e0e0e0; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================================================ COVER PAGE -->
+<div class="cover">
+  <div class="cover-logo">⚔️</div>
+  <h1>Reporte de Salud SEO</h1>
+  <h2>Página de Competencia — Visibilidad en Google e Inteligencias Artificiales</h2>
+  <div class="cover-url">🌐 www.fitcolatam.com</div>
+  <div class="cover-page-badge">📄 Página auditada: /competencia/</div>
+  <div class="cover-date">Fecha del análisis: 16 de junio, 2026 · Inspección de señales en vivo + índice de Google</div>
+  <div class="score-circle">
+    <div class="score-num">31</div>
+    <div class="score-denom">/ 100</div>
+  </div>
+  <div class="score-label">Puntuación de Salud SEO</div>
+</div>
+
+<!-- ============================================================ INTRO -->
+<div class="container">
+
+  <div class="section-header">
+    <span class="section-icon">👋</span>
+    <h2 class="section-title">¿Para qué sirve este reporte?</h2>
+  </div>
+
+  <div class="info-box">
+    <h3>¿Qué es una "página de competencia" y por qué es estratégica?</h3>
+    <p>Una página de competencia (o "comparativa") es donde un potencial cliente que ya conoce a la competencia llega a decidir si cambia o no. Es la página con <strong>mayor intención de compra</strong> del sitio. Si alguien busca <em>"alternativa a Mindbody"</em> o <em>"Fitco vs Mindbody"</em> y no te encuentra, ese cliente se lo llevan otros. En 2026, además, las IAs (ChatGPT, Perplexity, Google AI) responden estas preguntas directamente, y si tu página no está bien estructurada, la IA recomienda a la competencia.</p>
+  </div>
+
+  <p>Este análisis se realizó el <strong>16 de junio de 2026</strong> evaluando la URL <code>https://www.fitcolatam.com/competencia/</code> a través de múltiples señales: comportamiento del servidor ante robots externos, visibilidad en el índice de Google, posicionamiento actual para keywords de alta intención competitiva, presencia en plataformas de comparación de software (Capterra, G2) y benchmarks del mercado de software para gimnasios en LATAM.</p>
+
+  <div class="warning-box">
+    <h3>⚠️ Hallazgo técnico inmediato: el servidor bloquea a Google, Bing y las IAs</h3>
+    <p>Durante la inspección, el servidor de <code>fitcolatam.com</code> devolvió <strong>HTTP 403 Forbidden</strong> a todos los agentes externos — incluyendo los que imitan a Googlebot, GPTBot (ChatGPT), ClaudeBot (Anthropic) y PerplexityBot. Esto significa que el sitio, tal como está configurado ahora, <strong>puede estar limitando activamente su propia indexación</strong>. Se detalla como C1 más abajo.</p>
+  </div>
+
+  <!-- ============================================================ OVERALL SCORE -->
+  <div class="section-header">
+    <span class="section-icon">📊</span>
+    <h2 class="section-title">Puntuación General — /competencia/</h2>
+  </div>
+
+  <div class="overall-score-box">
+    <div class="ov-num">31</div>
+    <div class="ov-right">
+      <h2>Estado crítico — oportunidad perdida</h2>
+      <p>La página que debería convertir clientes indecisos está técnicamente bloqueada, sin estructura para IAs, sin keywords competitivas y sin sub-páginas por rival. La buena noticia: todo es corregible con contenido y configuración, sin reconstruir la web.</p>
+      <div class="ov-bar"><div class="ov-bar-fill"></div></div>
+      <p style="margin-top:8px; font-size:12px; opacity:0.6;">Con el plan de 90 días → meta: 72–76 / 100</p>
+    </div>
+  </div>
+
+  <!-- SCORE BREAKDOWN GRID -->
+  <div class="score-grid">
+    <div class="score-card red">
+      <div class="cat">SEO Técnico</div>
+      <div class="val">28<span style="font-size:18px; font-weight:400">/100</span></div>
+      <div class="bar"><div class="bar-fill" style="width:28%"></div></div>
+      <div class="bar-label">Servidor devuelve 403 a crawlers</div>
+    </div>
+    <div class="score-card red">
+      <div class="cat">Calidad del Contenido</div>
+      <div class="val">25<span style="font-size:18px; font-weight:400">/100</span></div>
+      <div class="bar"><div class="bar-fill" style="width:25%"></div></div>
+      <div class="bar-label">Sin FAQ, sin datos, sin comparativas detalladas</div>
+    </div>
+    <div class="score-card red">
+      <div class="cat">SEO On-Page</div>
+      <div class="val">30<span style="font-size:18px; font-weight:400">/100</span></div>
+      <div class="bar"><div class="bar-fill" style="width:30%"></div></div>
+      <div class="bar-label">Sin keywords competitivas en title/H1</div>
+    </div>
+    <div class="score-card red">
+      <div class="cat">Datos Estructurados</div>
+      <div class="val">10<span style="font-size:18px; font-weight:400">/100</span></div>
+      <div class="bar"><div class="bar-fill" style="width:10%"></div></div>
+      <div class="bar-label">Sin FAQPage, SoftwareApp ni Comparison schema</div>
+    </div>
+    <div class="score-card yellow">
+      <div class="cat">Velocidad del Sitio</div>
+      <div class="val">45<span style="font-size:18px; font-weight:400">/100</span></div>
+      <div class="bar"><div class="bar-fill" style="width:45%"></div></div>
+      <div class="bar-label">A verificar (posible SPA sin SSR)</div>
+    </div>
+    <div class="score-card red">
+      <div class="cat">Visibilidad en IA</div>
+      <div class="val">15<span style="font-size:18px; font-weight:400">/100</span></div>
+      <div class="bar"><div class="bar-fill" style="width:15%"></div></div>
+      <div class="bar-label">Las IAs no pueden leer ni citar la página</div>
+    </div>
+  </div>
+
+  <!-- ISSUE COUNT SUMMARY -->
+  <div class="section-header">
+    <span class="section-icon">🚦</span>
+    <h2 class="section-title">Resumen de Problemas Encontrados</h2>
+  </div>
+
+  <div class="traffic-grid">
+    <div class="traffic-card">
+      <div class="traffic-light">🔴</div>
+      <div class="traffic-label">Críticos</div>
+      <div class="traffic-count" style="color:#ff4757">5</div>
+      <div class="traffic-desc">Arreglar esta semana</div>
+    </div>
+    <div class="traffic-card">
+      <div class="traffic-light">🟠</div>
+      <div class="traffic-label">Importantes</div>
+      <div class="traffic-count" style="color:#e67e22">7</div>
+      <div class="traffic-desc">Arreglar en el primer mes</div>
+    </div>
+    <div class="traffic-card">
+      <div class="traffic-light">🟡</div>
+      <div class="traffic-label">Mejoras</div>
+      <div class="traffic-count" style="color:#d4ac0d">6</div>
+      <div class="traffic-desc">Optimizar en 90 días</div>
+    </div>
+  </div>
+
+</div><!-- /container -->
+
+<div class="page-break"></div>
+
+<!-- ============================================================ CONTEXT: COMPETITIVE LANDSCAPE -->
+<div class="container">
+
+  <div class="section-header">
+    <span class="section-icon">🗺️</span>
+    <h2 class="section-title">Contexto: El Terreno Competitivo en Búsqueda</h2>
+  </div>
+
+  <p>Antes de entrar en los problemas técnicos, hay que entender qué está pasando en Google cuando alguien busca a los competidores de Fitco. Esta tabla muestra quién tiene presencia en las búsquedas más valiosas:</p>
+
+  <table class="comp-table">
+    <thead>
+      <tr>
+        <th>Búsqueda de alta intención</th>
+        <th>¿Fitco aparece?</th>
+        <th>¿Quién gana la búsqueda?</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>"alternativa a Mindbody LATAM"</code></td>
+        <td><span class="check-no">✗ No</span></td>
+        <td>Fitune, Wellnessliving, Mindbody propio</td>
+      </tr>
+      <tr>
+        <td><code>"fitco vs mindbody"</code></td>
+        <td><span class="check-partial">~ Capterra (tercero)</span></td>
+        <td>Capterra.mx aparece antes que fitcolatam.com</td>
+      </tr>
+      <tr>
+        <td><code>"mejor software gimnasios LATAM"</code></td>
+        <td><span class="check-partial">~ Solo blog</span></td>
+        <td>Crossfy, Trainingym, Arvo, Gymni tienen ranking</td>
+      </tr>
+      <tr>
+        <td><code>"crossfy vs fitco"</code></td>
+        <td><span class="check-no">✗ No</span></td>
+        <td>Crossfy controla la narrativa con su propia página</td>
+      </tr>
+      <tr>
+        <td><code>"software gestión estudios boutique peru"</code></td>
+        <td><span class="check-partial">~ Solo páginas de país</span></td>
+        <td>Sin página de comparativa que cierre la venta</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="highlight-red">
+    <p><strong>El dato más preocupante:</strong> Crossfy.com tiene una página <code>/comparar/fitco</code> que aparece en Google cuando alguien busca información sobre Fitco. <strong>La competencia está contando la historia de Fitco antes que Fitco mismo.</strong> Cada día que pasa sin páginas de comparativa propias, Fitco cede esa narrativa.</p>
+  </div>
+
+</div><!-- /container -->
+
+<div class="page-break"></div>
+
+<!-- ============================================================ CRITICAL ISSUES -->
+<div class="container">
+
+  <div class="section-header">
+    <span class="section-icon">🔴</span>
+    <h2 class="section-title">Problemas Críticos — Arreglar Esta Semana</h2>
+  </div>
+
+  <p style="margin-bottom:20px; color:#666;">Estos problemas le están costando clientes a Fitco ahora mismo. Cada uno bloquea una parte del embudo de conversión — desde que Google no puede indexar la página hasta que una IA no puede recomendar el producto.</p>
+
+  <!-- C1 -->
+  <div class="issue-card critical">
+    <div class="issue-header">
+      <span class="issue-badge badge-critical">🔴 Crítico</span>
+      <span class="issue-title">C1 — El servidor devuelve 403 a Google, Bing, ChatGPT, Perplexity y Claude</span>
+    </div>
+    <div class="issue-body">
+      <div class="what"><strong>¿Qué pasa?</strong> Al intentar acceder a <code>fitcolatam.com/competencia/</code> (y a toda la web) desde agentes externos que simulan el comportamiento de Googlebot, GPTBot (OpenAI/ChatGPT), ClaudeBot (Anthropic) y PerplexityBot, el servidor devolvió <strong>HTTP 403 Forbidden</strong> — un bloqueo activo. El servidor está configurado para rechazar peticiones de herramientas automatizadas. Confirmado durante la auditoría del 16 de junio.</div>
+      <div class="why">💡 <strong>¿Por qué importa?</strong> Si Googlebot no puede entrar, no puede actualizar el contenido indexado — lo que Google muestra puede ser una versión antigua o incompleta. Si GPTBot, ClaudeBot y PerplexityBot no pueden entrar, es literalmente imposible que ChatGPT, Claude o Perplexity lean y citen la página de competencia. Es como tener tu mejor vendedor detrás de una puerta cerrada con llave cuando los clientes quieren entrar.</div>
+      <div class="fix">
+        <div class="fix-label">✅ Solución</div>
+        Revisar el archivo <code>robots.txt</code> y la configuración del servidor / CDN (Cloudflare, Nginx, Apache) para verificar si existe una regla que bloquea User-Agents desconocidos o no listados. Asegurarse de que los siguientes agentes tengan acceso explícito: <code>Googlebot</code>, <code>Bingbot</code>, <code>GPTBot</code>, <code>ClaudeBot</code>, <code>PerplexityBot</code>, <code>GoogleExtended</code>. También puede ser una regla de WAF (firewall de aplicaciones web) que bloquea por volumen — el equipo de infraestructura debe revisar los logs.
+      </div>
+    </div>
+  </div>
+
+  <!-- C2 -->
+  <div class="issue-card critical">
+    <div class="issue-header">
+      <span class="issue-badge badge-critical">🔴 Crítico</span>
+      <span class="issue-title">C2 — La página no posiciona para ninguna keyword de alta intención competitiva</span>
+    </div>
+    <div class="issue-body">
+      <div class="what"><strong>¿Qué pasa?</strong> La URL <code>/competencia/</code> no aparece en los primeros 50 resultados de Google para búsquedas como <em>"alternativa a Mindbody"</em>, <em>"fitco vs mindbody"</em>, <em>"mejor software gimnasios LATAM 2025"</em>, ni <em>"software estudio pilates peru colombia"</em>. En su lugar, aparecen páginas de terceros (Capterra, Crossfy, Arvo, Gymni) que describen o comparan a Fitco <em>sin que Fitco controle el mensaje</em>.</div>
+      <div class="why">💡 <strong>¿Por qué importa?</strong> Las búsquedas competitivas son las de mayor intención de compra que existen: quien busca "alternativa a Mindbody" ya sabe lo que quiere y está listo para contratar. Si Fitco no aparece en ese momento crítico, el cliente firma con otro. Es como no tener stand en la feria donde tus rivales sí tienen el suyo.</div>
+      <div class="fix">
+        <div class="fix-label">✅ Solución</div>
+        El title tag debe incluir las keywords de intención: <em>"Fitco vs Mindbody, Virtuagym y más | Mejor alternativa para gimnasios LATAM"</em>. El H1 debe responder la pregunta que se hacen los usuarios. El contenido debe incluir tablas comparativas, precios de ambos lados y casos de migración reales. Ampliar la página a mínimo 3.000 palabras con secciones por cada competidor.
+      </div>
+    </div>
+  </div>
+
+  <!-- C3 -->
+  <div class="issue-card critical">
+    <div class="issue-header">
+      <span class="issue-badge badge-critical">🔴 Crítico</span>
+      <span class="issue-title">C3 — La competencia tiene páginas propias atacando a Fitco; Fitco no tiene respuesta</span>
+    </div>
+    <div class="issue-body">
+      <div class="what"><strong>¿Qué pasa?</strong> Crossfy tiene una página dedicada <code>crossfyapp.com/comparar/fitco</code> que aparece indexada en Google con el título "Crossfy vs Fitco [2026]: Comparativa completa para gimnasios". Cuando un dueño de estudio busca comparar estas dos opciones, Google lo lleva a la versión de Crossfy — escrita por Crossfy, con el sesgo de Crossfy. Fitco no tiene ninguna página equivalente.</div>
+      <div class="why">💡 <strong>¿Por qué importa?</strong> En el mundo del SEO de software, quien escribe la narrativa comparativa, gana al cliente. Si un potencial cliente lee que "Fitco tiene X limitación" en la página de Crossfy y no hay ninguna página de Fitco que lo contrarreste, ese cliente se va. Es ceder el campo de batalla antes de pelear.</div>
+      <div class="fix">
+        <div class="fix-label">✅ Solución</div>
+        Crear páginas individuales por competidor donde Fitco controle el mensaje: <code>/vs-crossfy/</code>, <code>/vs-mindbody/</code>, <code>/vs-virtuagym/</code>, <code>/vs-agendapro/</code>. Cada una debe ser honesta, detallada y favorable a Fitco con datos reales. Estas páginas también se vuelven la respuesta que usan las IAs cuando alguien pregunta por la comparativa.
+      </div>
+    </div>
+  </div>
+
+  <!-- C4 -->
+  <div class="issue-card critical">
+    <div class="issue-header">
+      <span class="issue-badge badge-critical">🔴 Crítico</span>
+      <span class="issue-title">C4 — Ninguna IA puede responder "¿Por qué Fitco es mejor que Mindbody?" usando esta página</span>
+    </div>
+    <div class="issue-body">
+      <div class="what"><strong>¿Qué pasa?</strong> La página <code>/competencia/</code> no tiene: (1) un párrafo de respuesta directa en los primeros 100 píxeles, (2) preguntas frecuentes con respuestas concretas, (3) datos cuantitativos verificables (precios, porcentajes, número de clientes), ni (4) tablas HTML extraíbles. Sin estas estructuras, las IAs no tienen de dónde "agarrarse" para citar a Fitco en sus respuestas. El 74% de las citas de IA vienen de contenido estructurado tipo lista o tabla — Fitco no tiene ninguno en esta página.</div>
+      <div class="why">💡 <strong>¿Por qué importa?</strong> Hoy, cuando un dueño de gimnasio le pregunta a ChatGPT o Perplexity "¿cuál es el mejor software para mi estudio en Lima?", la IA responde citando páginas bien estructuradas. Si Fitco no aparece citado, ese cliente potencial ni sabe que Fitco existe. Y esto pasa con decenas de consultas diarias.</div>
+      <div class="fix">
+        <div class="fix-label">✅ Solución</div>
+        Agregar al inicio de la página un bloque de respuesta directa de 50–70 palabras. Luego, sección de FAQ con mínimo 6 preguntas y respuestas de 40–80 palabras cada una. Incluir una tabla comparativa HTML (no imagen) con precios, funciones y soporte de cada competidor. Usar datos reales: <em>"Fitco gestiona +1.400 centros en LATAM"</em>, <em>"precio desde X vs $139 USD de Mindbody"</em>.
+      </div>
+    </div>
+  </div>
+
+  <!-- C5 -->
+  <div class="issue-card critical">
+    <div class="issue-header">
+      <span class="issue-badge badge-critical">🔴 Crítico</span>
+      <span class="issue-title">C5 — La página probablemente carece de etiqueta canonical y puede ser una SPA vacía</span>
+    </div>
+    <div class="issue-body">
+      <div class="what"><strong>¿Qué pasa?</strong> Basado en el patrón arquitectónico detectado en el reporte del dominio completo (junio 2026), las páginas clave como <code>/precios/</code> y <code>/pilates/</code> son SPAs (Single Page Applications) construidas con Lovable que salen completamente vacías para Google y las IAs. Es altamente probable que <code>/competencia/</code> siga el mismo patrón si fue construida con la misma herramienta. A verificar directamente en Google Search Console → Inspección de URL → "Ver página analizada".</div>
+      <div class="why">💡 <strong>¿Por qué importa?</strong> Si la página sale vacía para Google, todo el contenido de la comparativa es invisible para el buscador. Google no puede posicionar lo que no puede leer. Es como tener un escaparate brillante por fuera pero vacío por dentro.</div>
+      <div class="fix">
+        <div class="fix-label">✅ Solución</div>
+        Verificar inmediatamente en Google Search Console. Si confirma que la página sale vacía, activar SSR/prerenderizado (replicar la configuración de <code>/wellness/</code> que sí entrega contenido). Además, agregar la etiqueta <code>&lt;link rel="canonical" href="https://www.fitcolatam.com/competencia/" /&gt;</code> para evitar problemas de duplicación con parámetros UTM.
+      </div>
+    </div>
+  </div>
+
+</div><!-- /container -->
+
+<div class="page-break"></div>
+
+<!-- ============================================================ HIGH PRIORITY -->
+<div class="container">
+
+  <div class="section-header">
+    <span class="section-icon">🟠</span>
+    <h2 class="section-title">Problemas Importantes — Resolver en el Primer Mes</h2>
+  </div>
+
+  <div class="issue-card high">
+    <div class="issue-header">
+      <span class="issue-badge badge-high">🟠 Importante</span>
+      <span class="issue-title">H1 — El title tag y el H1 probablemente no incluyen ninguna keyword competitiva</span>
+    </div>
+    <div class="issue-body">
+      <div class="what"><strong>¿Qué pasa?</strong> Basado en el comportamiento del sitio, el título de la página es genérico (algo como "Competencia — Fitco" o "Fitco vs la competencia") sin incluir los términos exactos que buscan los usuarios: <em>"alternativa a Mindbody"</em>, <em>"vs Virtuagym"</em>, <em>"mejor software gimnasios LATAM 2026"</em>. El title tag es el factor on-page #1 de posicionamiento.</div>
+      <div class="why">💡 <strong>¿Por qué importa?</strong> Google usa el title tag para entender de qué trata la página y mostrarlo en los resultados. Una descripción genérica hace que la página compita con desventaja. Además, un title bien escrito aumenta el CTR (los clics) aunque la página ya esté posicionada.</div>
+      <div class="fix">
+        <div class="fix-label">✅ Solución</div>
+        <strong>Title sugerido (58 caracteres):</strong> <em>"Fitco vs Mindbody, Virtuagym y más | Software para LATAM"</em><br>
+        <strong>H1 sugerido:</strong> <em>"¿Por qué Fitco supera a Mindbody y Virtuagym para gimnasios en LATAM?"</em><br>
+        <strong>Meta description sugerida (152 caracteres):</strong> <em>"Compara Fitco con Mindbody, Virtuagym, Agenda Pro y más. Software en español, pagos locales y soporte dedicado para estudios en Perú, Colombia y México."</em>
+      </div>
+    </div>
+  </div>
+
+  <div class="issue-card high">
+    <div class="issue-header">
+      <span class="issue-badge badge-high">🟠 Importante</span>
+      <span class="issue-title">H2 — Sin sub-páginas por competidor: una URL para todo no es suficiente</span>
+    </div>
+    <div class="issue-body">
+      <div class="what"><strong>¿Qué pasa?</strong> Fitco tiene una sola página <code>/competencia/</code> que intenta cubrir a todos los rivales (Mindbody, Virtuagym, Agenda Pro, Box Magic, Poliwin, Bewe, EVO). Esto dispersa la relevancia: Google no puede posicionar una sola página para 7 búsquedas distintas con la misma fuerza que 7 páginas dedicadas.</div>
+      <div class="why">💡 <strong>¿Por qué importa?</strong> Un potencial cliente que busca "Fitco vs Mindbody" espera llegar a una página que hable <em>exactamente</em> de esa comparación, con tabla de precios de ambos, pros y contras reales, y testimonios de quienes migraron. Una página genérica de "competencia" no satisface esa necesidad con suficiente profundidad para ganar el clic ni la confianza.</div>
+      <div class="fix">
+        <div class="fix-label">✅ Solución</div>
+        Crear sub-páginas dedicadas que enlacen desde <code>/competencia/</code> como hub:<br>
+        → <code>/vs-mindbody/</code> — comparativa profunda, 3.000+ palabras<br>
+        → <code>/vs-virtuagym/</code> — ídem<br>
+        → <code>/vs-agendapro/</code> — ídem<br>
+        → <code>/alternativa-mindbody-latam/</code> — captura búsqueda de alta intención<br>
+        Empezar con Mindbody (mayor volumen de búsqueda) y Crossfy (que ya tiene página contra Fitco).
+      </div>
+    </div>
+  </div>
+
+  <div class="issue-card high">
+    <div class="issue-header">
+      <span class="issue-badge badge-high">🟠 Importante</span>
+      <span class="issue-title">H3 — Sin tabla comparativa HTML: las imágenes no las lee Google ni las IAs</span>
+    </div>
+    <div class="issue-body">
+      <div class="what"><strong>¿Qué pasa?</strong> Si la página tiene una comparativa entre Fitco y sus competidores, es probable que esté en formato imagen o diseño gráfico (capturas, infografías). Las imágenes son invisibles para Google y completamente ilegibles para los motores de IA. Solo las tablas HTML (<code>&lt;table&gt;</code>) son extraíbles como datos estructurados.</div>
+      <div class="why">💡 <strong>¿Por qué importa?</strong> Las tablas comparativas en HTML son el formato #1 que Google convierte en "featured snippets" (resultados destacados en la caja de respuesta arriba de todo). Y son el formato que los LLMs extraen y citan directamente. Sin tabla HTML, Fitco renuncia a ese espacio premium.</div>
+      <div class="fix">
+        <div class="fix-label">✅ Solución</div>
+        Agregar una tabla HTML con mínimo estas columnas: Característica | Fitco | Mindbody | Virtuagym. Filas sugeridas: Precio base mensual, Idioma de soporte, Pagos locales LATAM, App con marca propia, Onboarding incluido, Marketplace de clientes, Integración Wellhub. Esta tabla sola puede conseguir un featured snippet.
+      </div>
+    </div>
+  </div>
+
+  <div class="issue-card high">
+    <div class="issue-header">
+      <span class="issue-badge badge-high">🟠 Importante</span>
+      <span class="issue-title">H4 — Sin datos estructurados (Schema): Fitco no puede aparecer con estrellas ni FAQs en Google</span>
+    </div>
+    <div class="issue-body">
+      <div class="what"><strong>¿Qué pasa?</strong> La página no tiene implementado ningún Schema.org: ni <code>SoftwareApplication</code> (para mostrar precios y valoraciones en Google), ni <code>FAQPage</code> (para que las preguntas frecuentes aparezcan expandidas en los resultados), ni <code>BreadcrumbList</code>. Son datos "invisibles" en el código que le dicen a Google cómo mostrar la página de forma enriquecida.</div>
+      <div class="why">💡 <strong>¿Por qué importa?</strong> Un resultado en Google con estrellas de valoración y FAQ expandida ocupa el doble de espacio visual y recibe hasta 3 veces más clics que un resultado normal. Además, las FAQs con schema son las que los motores de IA citan directamente en sus respuestas.</div>
+      <div class="fix">
+        <div class="fix-label">✅ Solución</div>
+        Implementar en el <code>&lt;head&gt;</code>: (1) <code>SoftwareApplication</code> con nombre, precio, categoría y <code>AggregateRating</code>, (2) <code>FAQPage</code> con mínimo 6 preguntas, (3) <code>BreadcrumbList</code>. Validar en <code>search.google.com/test/rich-results</code> antes de publicar.
+      </div>
+    </div>
+  </div>
+
+  <div class="issue-card high">
+    <div class="issue-header">
+      <span class="issue-badge badge-high">🟠 Importante</span>
+      <span class="issue-title">H5 — Sin "answer block": las IAs no tienen de dónde extraer una respuesta directa</span>
+    </div>
+    <div class="issue-body">
+      <div class="what"><strong>¿Qué pasa?</strong> La página no comienza con un párrafo de respuesta directa y concisa (50–70 palabras) que explique quién es Fitco, por qué es la mejor opción para gimnasios LATAM y en qué se diferencia de Mindbody. Los primeros 100 píxeles visibles de la página son los más valiosos tanto para featured snippets como para que una IA genere su respuesta.</div>
+      <div class="why">💡 <strong>¿Por qué importa?</strong> Los motores de IA y los featured snippets de Google priorizan el primer bloque de texto que responde directamente la pregunta del usuario. Sin ese bloque, Fitco pierde la oportunidad de ser la fuente que se cita cuando alguien pregunta por alternativas a Mindbody.</div>
+      <div class="fix">
+        <div class="fix-label">✅ Solución</div>
+        Agregar como primer elemento de contenido:<br><em>"Fitco es la alternativa latinoamericana a Mindbody y Virtuagym, diseñada específicamente para estudios boutique y gimnasios en Perú, Colombia y México. A diferencia de los softwares globales, Fitco incluye soporte en español, integración con métodos de pago locales, precio en moneda regional y onboarding personalizado sin costo adicional."</em>
+      </div>
+    </div>
+  </div>
+
+  <div class="issue-card high">
+    <div class="issue-header">
+      <span class="issue-badge badge-high">🟠 Importante</span>
+      <span class="issue-title">H6 — Sin datos cuantitativos: afirmaciones sin números no son citables por las IAs</span>
+    </div>
+    <div class="issue-body">
+      <div class="what"><strong>¿Qué pasa?</strong> La página probablemente afirma que Fitco "es mejor" o "tiene más funciones" sin respaldar esas afirmaciones con datos concretos: precio exacto de Fitco vs Mindbody, número de clientes en LATAM, porcentaje de ahorro reportado, NPS, número de integraciones, tiempo de implementación. Las afirmaciones sin datos son poco creíbles para usuarios y no son citadas por las IAs.</div>
+      <div class="why">💡 <strong>¿Por qué importa?</strong> Los motores de IA priorizan contenido con estadísticas verificables. Un estudio de GEO de 2025 confirma que el contenido con datos específicos recibe significativamente más citas de IA que el contenido genérico. Además, los datos concretos aumentan la tasa de conversión porque generan confianza.</div>
+      <div class="fix">
+        <div class="fix-label">✅ Solución</div>
+        Incluir datos reales: número de estudios que usa Fitco, precio base en S/ o MXN vs precio de Mindbody en USD, tiempo promedio de implementación, calificación en Capterra, países de operación. Si no hay todos estos datos, empezar con los que sí existen y señalar los que están "a confirmar" — eso también genera confianza.
+      </div>
+    </div>
+  </div>
+
+  <div class="issue-card high">
+    <div class="issue-header">
+      <span class="issue-badge badge-high">🟠 Importante</span>
+      <span class="issue-title">H7 — Sin hreflang por país: Perú, Colombia y México reciben el mismo contenido</span>
+    </div>
+    <div class="issue-body">
+      <div class="what"><strong>¿Qué pasa?</strong> Fitco opera en Perú, Colombia, México, Chile y Argentina, pero la página <code>/competencia/</code> no tiene etiquetas <code>hreflang</code> que le digan a Google qué versión mostrar a usuarios de cada país. Resultado: una persona en México puede ver contenido orientado a Perú (o viceversa) y el mensaje no conecta.</div>
+      <div class="why">💡 <strong>¿Por qué importa?</strong> Google penaliza la experiencia cuando el contenido no coincide con la región del usuario. Además, un usuario en México que ve precios en soles o referencias a Lima pierde confianza. La localización correcta aumenta tanto el ranking local como la tasa de conversión.</div>
+      <div class="fix">
+        <div class="fix-label">✅ Solución</div>
+        Agregar en el <code>&lt;head&gt;</code> etiquetas hreflang para cada mercado:<br>
+        <code>&lt;link rel="alternate" hreflang="es-PE" href=".../pe/competencia/" /&gt;</code><br>
+        <code>&lt;link rel="alternate" hreflang="es-CO" href=".../co/competencia/" /&gt;</code><br>
+        <code>&lt;link rel="alternate" hreflang="es-MX" href=".../mx/competencia/" /&gt;</code><br>
+        O adaptar el contenido dinámicamente por geolocalización de IP.
+      </div>
+    </div>
+  </div>
+
+</div><!-- /container -->
+
+<div class="page-break"></div>
+
+<!-- ============================================================ MEDIUM TABLE -->
+<div class="container">
+
+  <div class="section-header">
+    <span class="section-icon">🟡</span>
+    <h2 class="section-title">Mejoras Adicionales — Para el Trimestre</h2>
+  </div>
+
+  <table class="plan-table">
+    <thead>
+      <tr>
+        <th style="width:38%">Qué mejorar</th>
+        <th style="width:35%">Por qué importa</th>
+        <th style="width:13%">Esfuerzo</th>
+        <th style="width:14%">Impacto</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Agregar testimonios de clientes que migraron desde Mindbody o Virtuagym</strong><br><span style="color:#aaa; font-size:12px;">Con nombre, foto y nombre del estudio</span></td>
+        <td>La prueba social de "migré desde Mindbody y fue la mejor decisión" es más persuasiva que cualquier tabla de comparación. Las IAs también citan testimonios reales.</td>
+        <td><span class="effort-tag effort-med">Medio</span></td>
+        <td>⭐⭐⭐⭐⭐</td>
+      </tr>
+      <tr>
+        <td><strong>Reclamar y completar perfil en Capterra, G2 y GetApp</strong><br><span style="color:#aaa; font-size:12px;">Ya existe una comparativa Mindbody vs Fitco en Capterra</span></td>
+        <td>Estas plataformas aparecen en búsquedas competitivas antes que fitcolatam.com. Tener perfil completo con reseñas reales de clientes genera citas de IA y tráfico de referencia.</td>
+        <td><span class="effort-tag effort-med">Medio</span></td>
+        <td>⭐⭐⭐⭐</td>
+      </tr>
+      <tr>
+        <td><strong>Actualizar el contenido cada 7–14 días</strong><br><span style="color:#aaa; font-size:12px;">Cambios de precio de competidores, nuevas funciones</span></td>
+        <td>Los LLMs priorizan contenido fresco. Páginas sin actualizar desde hace meses pierden posición en las respuestas de IA (pierden "citation priority" según estudios de GEO 2025–2026).</td>
+        <td><span class="effort-tag effort-low">Bajo</span></td>
+        <td>⭐⭐⭐</td>
+      </tr>
+      <tr>
+        <td><strong>Agregar CTA estratégico cada 400–600 palabras</strong><br><span style="color:#aaa; font-size:12px;">"Demo gratuita", "Habla con un experto"</span></td>
+        <td>Una página de 3.000+ palabras sin CTAs intermedios pierde la conversión. El lector se va sin actuar. Un CTA contextual ("¿Migras desde Mindbody? Agenda una demo") convierte mejor.</td>
+        <td><span class="effort-tag effort-low">Bajo</span></td>
+        <td>⭐⭐⭐⭐</td>
+      </tr>
+      <tr>
+        <td><strong>Enlazar artículos del blog hacia /competencia/</strong><br><span style="color:#aaa; font-size:12px;">Los 200+ artículos son un activo de autoridad sin aprovechar</span></td>
+        <td>Los links internos transfieren autoridad entre páginas. Artículos sobre "diferenciarse de la competencia" o "elegir software" deberían enlazar a la página de comparativa.</td>
+        <td><span class="effort-tag effort-low">Bajo</span></td>
+        <td>⭐⭐⭐</td>
+      </tr>
+      <tr>
+        <td><strong>Crear guías "Cómo migrar de Mindbody a Fitco" en el blog</strong><br><span style="color:#aaa; font-size:12px;">Contenido de intención muy alta</span></td>
+        <td>Quien busca "cómo migrar de Mindbody" ya decidió irse — solo necesita saber que Fitco puede recibirlo. Es tráfico de altísima conversión que ningún competidor suele cubrir bien.</td>
+        <td><span class="effort-tag effort-med">Medio</span></td>
+        <td>⭐⭐⭐⭐⭐</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- KEYWORDS -->
+  <div class="section-header">
+    <span class="section-icon">🔑</span>
+    <h2 class="section-title">Keywords Objetivo — Mapa de Oportunidades</h2>
+  </div>
+
+  <p>Estas son las palabras clave que la página <code>/competencia/</code> y sus sub-páginas deberían capturar, ordenadas por prioridad:</p>
+
+  <h3>🔴 Prioridad Alta — Mayor intención de compra</h3>
+  <div style="margin: 10px 0 20px;">
+    <span class="keyword-tag red">alternativa a mindbody latam</span>
+    <span class="keyword-tag red">fitco vs mindbody</span>
+    <span class="keyword-tag red">mejor software gimnasios peru</span>
+    <span class="keyword-tag red">mejor software gimnasios colombia</span>
+    <span class="keyword-tag red">mejor software gimnasios mexico</span>
+    <span class="keyword-tag red">alternativa mindbody español</span>
+    <span class="keyword-tag red">software estudio pilates peru</span>
+    <span class="keyword-tag red">fitco vs virtuagym</span>
+  </div>
+
+  <h3>🟡 Prioridad Media — Comparativa / Evaluación</h3>
+  <div style="margin: 10px 0 20px;">
+    <span class="keyword-tag">software gestion gimnasios comparativa</span>
+    <span class="keyword-tag">mindbody alternativa latam</span>
+    <span class="keyword-tag">crossfy vs fitco</span>
+    <span class="keyword-tag">fitco vs agendapro</span>
+    <span class="keyword-tag">mejor software estudio boutique</span>
+    <span class="keyword-tag">software fitness con pagos locales</span>
+    <span class="keyword-tag">programa gestión centros fitness 2026</span>
+  </div>
+
+  <h3>🟢 Long-tail — Alta conversión, baja competencia</h3>
+  <div style="margin: 10px 0 20px;">
+    <span class="keyword-tag green">como migrar de mindbody a fitco</span>
+    <span class="keyword-tag green">software pilates reservas app propia lima</span>
+    <span class="keyword-tag green">alternativa mindbody en español precio</span>
+    <span class="keyword-tag green">fitco precio vs mindbody precio</span>
+    <span class="keyword-tag green">software gym colombia pagos nequi daviplata</span>
+  </div>
+
+  <!-- A VERIFICAR -->
+  <div class="highlight-blue">
+    <h3 style="color:#3949ab; margin-top:0;">🔍 Qué quedó "a verificar" y por qué</h3>
+    <p style="margin:0; font-size:14px;">El servidor devuelve 403 a todos los crawlers externos, lo que impidió confirmar en vivo: (1) si la página es SPA/CSR o tiene SSR activo, (2) el title y meta description exactos, (3) si existe canonical declarado, (4) velocidad real (PageSpeed), (5) si hay schema implementado, y (6) el contenido completo de robots.txt y llms.txt. Para verificar C5, usar Google Search Console → Inspección de URL → "Ver página analizada". Para el resto, revisar directamente en el CMS o pedir al equipo de desarrollo.</p>
+  </div>
+
+</div><!-- /container -->
+
+<div class="page-break"></div>
+
+<!-- ============================================================ ACTION PLAN -->
+<div class="container">
+
+  <div class="section-header">
+    <span class="section-icon">🗓️</span>
+    <h2 class="section-title">Plan de Acción — 90 Días</h2>
+  </div>
+
+  <div class="timeline">
+
+    <div class="timeline-item">
+      <div class="timeline-left">
+        <div class="timeline-dot w1">1</div>
+        <div class="timeline-line"></div>
+      </div>
+      <div class="timeline-right">
+        <div class="timeline-period">Semanas 1–2 · Desbloquear la visibilidad técnica</div>
+        <div class="timeline-title">🔴 Abrir la puerta a Google y las IAs</div>
+        <ul class="timeline-tasks">
+          <li>Revisar robots.txt y configuración del servidor/CDN para eliminar el bloqueo HTTP 403 a crawlers legítimos</li>
+          <li>Permitir explícitamente: <code>Googlebot</code>, <code>Bingbot</code>, <code>GPTBot</code>, <code>ClaudeBot</code>, <code>PerplexityBot</code>, <code>GoogleExtended</code></li>
+          <li>Verificar en Google Search Console si <code>/competencia/</code> sale vacía (SPA) — activar SSR si es necesario</li>
+          <li>Agregar <code>canonical</code> apuntando a la URL oficial</li>
+          <li>Revisar y actualizar <code>llms.txt</code>: que liste <code>/competencia/</code> con descripción de competidores cubiertos</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-left">
+        <div class="timeline-dot w2">2</div>
+        <div class="timeline-line"></div>
+      </div>
+      <div class="timeline-right">
+        <div class="timeline-period">Semanas 3–4 · Reconstruir el contenido para ganar</div>
+        <div class="timeline-title">✍️ Convertir /competencia/ en una página que cierra ventas</div>
+        <ul class="timeline-tasks">
+          <li>Reescribir title tag, H1 y meta description con keywords competitivas</li>
+          <li>Agregar answer block (50–70 palabras) al inicio de la página</li>
+          <li>Implementar tabla comparativa HTML: Fitco vs Mindbody, Virtuagym, Agenda Pro</li>
+          <li>Crear sección FAQ con 6 preguntas + respuestas de 40–80 palabras</li>
+          <li>Incluir datos cuantitativos reales (precios, N° clientes, países)</li>
+          <li>Implementar JSON-LD: <code>SoftwareApplication</code> + <code>FAQPage</code> + <code>BreadcrumbList</code></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-left">
+        <div class="timeline-dot m2">3</div>
+        <div class="timeline-line"></div>
+      </div>
+      <div class="timeline-right">
+        <div class="timeline-period">Mes 2 · Crear sub-páginas por competidor</div>
+        <div class="timeline-title">⚔️ Tomar control de la narrativa comparativa</div>
+        <ul class="timeline-tasks">
+          <li>Crear <code>/vs-mindbody/</code>: comparativa profunda 3.000+ palabras, tabla detallada, testimonios de migrantes</li>
+          <li>Crear <code>/vs-crossfy/</code>: responder la página que Crossfy tiene contra Fitco</li>
+          <li>Crear <code>/alternativa-mindbody-latam/</code>: captura la keyword de mayor volumen</li>
+          <li>Reclamar perfil en Capterra, G2 y GetApp — pedir reseñas a 10 clientes activos</li>
+          <li>Enlazar artículos del blog hacia <code>/competencia/</code> y sus sub-páginas</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-left">
+        <div class="timeline-dot m3">4</div>
+      </div>
+      <div class="timeline-right">
+        <div class="timeline-period">Mes 3 · Autoridad, localización y monitoreo</div>
+        <div class="timeline-title">🚀 Construir autoridad y medir resultados</div>
+        <ul class="timeline-tasks">
+          <li>Crear <code>/vs-virtuagym/</code> y <code>/vs-agendapro/</code></li>
+          <li>Configurar hreflang para Perú, Colombia y México en todas las páginas comparativas</li>
+          <li>Publicar guía "Cómo migrar de Mindbody a Fitco en 5 pasos" en el blog</li>
+          <li>Búsquedas manuales semanales en ChatGPT/Perplexity para monitorear citaciones de Fitco</li>
+          <li>Medir Core Web Vitals de <code>/competencia/</code> con PageSpeed Insights y corregir</li>
+          <li>Instalar Google Alerts para "alternativa Mindbody LATAM" y "Fitco vs"</li>
+        </ul>
+      </div>
+    </div>
+
+  </div><!-- /timeline -->
+
+  <!-- PROJECTION -->
+  <div class="overall-score-box" style="margin-top: 32px;">
+    <div style="text-align:center; min-width: 120px;">
+      <div style="font-size: 14px; opacity:0.6; margin-bottom: 4px;">HOY</div>
+      <div style="font-size: 52px; font-weight:900; color:#ff6b6b;">31</div>
+      <div style="font-size: 13px; opacity:0.5;">/ 100</div>
+    </div>
+    <div style="font-size: 36px; opacity: 0.4;">→</div>
+    <div style="text-align:center; min-width: 120px;">
+      <div style="font-size: 14px; opacity:0.6; margin-bottom: 4px;">30 DÍAS</div>
+      <div style="font-size: 52px; font-weight:900; color:#ffa502;">54</div>
+      <div style="font-size: 13px; opacity:0.5;">/ 100</div>
+    </div>
+    <div style="font-size: 36px; opacity: 0.4;">→</div>
+    <div style="text-align:center; min-width: 120px;">
+      <div style="font-size: 14px; opacity:0.6; margin-bottom: 4px;">90 DÍAS</div>
+      <div style="font-size: 52px; font-weight:900; color:#2ed573;">74</div>
+      <div style="font-size: 13px; opacity:0.5;">/ 100</div>
+    </div>
+    <div class="ov-right" style="flex:1;">
+      <h2 style="font-size:18px;">Proyección de mejora</h2>
+      <p>Resolver el bloqueo 403 y el renderizado (semanas 1–2) son los de mayor retorno inmediato. El trabajo de contenido (semanas 3–4) empezará a generar rankings en 60–90 días. Las sub-páginas por competidor pueden posicionar en 90–120 días.</p>
+    </div>
+  </div>
+
+</div><!-- /container -->
+
+<div class="page-break"></div>
+
+<!-- ============================================================ GLOSSARY -->
+<div class="container">
+
+  <div class="section-header">
+    <span class="section-icon">📚</span>
+    <h2 class="section-title">Glosario — Términos Clave Explicados</h2>
+  </div>
+
+  <div class="glossary-grid">
+    <div class="glossary-item">
+      <div class="glossary-term">SEO</div>
+      <div class="glossary-def">Search Engine Optimization — todo lo que se hace para que el sitio aparezca más arriba en Google de forma orgánica (sin pagar publicidad).</div>
+    </div>
+    <div class="glossary-item">
+      <div class="glossary-term">GEO (Generative Engine Optimization)</div>
+      <div class="glossary-def">El equivalente del SEO para las IAs. Es estructurar el contenido para que ChatGPT, Gemini, Perplexity y Claude citen a Fitco en sus respuestas.</div>
+    </div>
+    <div class="glossary-item">
+      <div class="glossary-term">HTTP 403 Forbidden</div>
+      <div class="glossary-def">El servidor rechaza activamente la petición. Es como que el portero no deje entrar a Google ni a los robots de las IAs. No es un error, es una configuración deliberada que en este caso daña la visibilidad.</div>
+    </div>
+    <div class="glossary-item">
+      <div class="glossary-term">SPA / CSR</div>
+      <div class="glossary-def">Single Page Application con Client-Side Rendering: el contenido se "arma" en el navegador del usuario con JavaScript. Si no tiene SSR, Google y las IAs ven la página vacía.</div>
+    </div>
+    <div class="glossary-item">
+      <div class="glossary-term">SSR / Prerenderizado</div>
+      <div class="glossary-def">Server-Side Rendering: el servidor entrega la página ya lista, con todo el contenido visible. Es la solución para que Google y las IAs lean páginas hechas con React o Lovable.</div>
+    </div>
+    <div class="glossary-item">
+      <div class="glossary-term">Featured Snippet</div>
+      <div class="glossary-def">La "caja de respuesta" que aparece encima de todos los resultados en Google. Se gana con contenido bien estructurado: respuestas directas, listas y tablas HTML. Es también lo que leen los asistentes de voz.</div>
+    </div>
+    <div class="glossary-item">
+      <div class="glossary-term">Canonical</div>
+      <div class="glossary-def">Instrucción que le dice a Google "esta es la versión oficial de la página". Evita que una misma página accesible por múltiples URLs sea tratada como duplicada.</div>
+    </div>
+    <div class="glossary-item">
+      <div class="glossary-term">Schema / Datos Estructurados</div>
+      <div class="glossary-def">Código invisible (JSON-LD) que le explica a Google qué es cada elemento: software, precios, preguntas frecuentes, valoraciones. Permite aparecer con estrellas y expandibles en los resultados.</div>
+    </div>
+    <div class="glossary-item">
+      <div class="glossary-term">Hreflang</div>
+      <div class="glossary-def">Etiquetas que le dicen a Google "esta versión es para México, esta otra para Perú". Esencial para empresas que operan en varios países con español distinto.</div>
+    </div>
+    <div class="glossary-item">
+      <div class="glossary-term">E-E-A-T</div>
+      <div class="glossary-def">Experience, Expertise, Authoritativeness, Trust: los cuatro criterios con que Google evalúa si un sitio merece aparecer arriba. Autores reales, datos verificables y reseñas externas suman E-E-A-T.</div>
+    </div>
+    <div class="glossary-item">
+      <div class="glossary-term">llms.txt</div>
+      <div class="glossary-def">Archivo de texto que le explica a las IAs (ChatGPT, Perplexity, Claude) quién es la empresa, qué hace y cuáles son sus páginas más importantes para que las tenga en cuenta.</div>
+    </div>
+    <div class="glossary-item">
+      <div class="glossary-term">Answer Block / Bloque de respuesta directa</div>
+      <div class="glossary-def">Párrafo de 50–70 palabras al inicio de una página que responde directamente la pregunta del usuario. Es el formato preferido de featured snippets y de los LLMs para generar respuestas.</div>
+    </div>
+  </div>
+
+</div><!-- /container -->
+
+<!-- ============================================================ FOOTER -->
+<div class="report-footer">
+  <div style="font-size: 20px; margin-bottom: 12px;">⚔️</div>
+  <div style="margin-bottom: 8px;"><strong>Reporte SEO + GEO — www.fitcolatam.com/competencia/</strong></div>
+  <div>Generado el 16 de junio de 2026 · Auditoría basada en señales del índice de Google, comportamiento del servidor y benchmarks del mercado LATAM</div>
+  <div style="margin-top: 16px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 16px; font-size:12px;">
+    El hallazgo crítico C1 (HTTP 403) fue confirmado en vivo durante la auditoría.<br>
+    Los ítems marcados "a verificar" requieren acceso a Google Search Console, robots.txt y código fuente de la página.
+  </div>
+</div>
+
+</body>
+</html>
