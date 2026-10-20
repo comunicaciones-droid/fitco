@@ -68,6 +68,15 @@ export const RemotionRoot: React.FC = () => {
         width={1080}
         height={1920}
       />
+      <Composition
+        id="UnreadEmailsChroma"
+        component={UnreadEmails}
+        durationInFrames={120}
+        fps={30}
+        width={1080}
+        height={1920}
+        defaultProps={{ keyColor: "#ff00ff" }}
+      />
     </>
   );
 };

@@ -42,7 +42,9 @@ const Cursor: React.FC = () => (
   </svg>
 );
 
-export const UnreadEmails: React.FC = () => {
+// keyColor: solid background for editors without alpha support (chroma key);
+// the drop shadow is dropped so the key comes out clean.
+export const UnreadEmails: React.FC<{ keyColor?: string }> = ({ keyColor }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
 
@@ -72,7 +74,7 @@ export const UnreadEmails: React.FC = () => {
   let unreadIndex = 0;
 
   return (
-    <AbsoluteFill>
+    <AbsoluteFill style={{ background: keyColor }}>
       {/* Transparent background: card is centered for its initial 7-row height. */}
       <AbsoluteFill style={{ alignItems: "center", paddingTop: (1920 - 140 - EMAILS.length * ROW_H) / 2 }}>
         <div
@@ -80,7 +82,7 @@ export const UnreadEmails: React.FC = () => {
             width: 960,
             borderRadius: 40,
             background: WHITE,
-            boxShadow: "0 30px 70px rgba(0,0,0,0.3)",
+            boxShadow: keyColor ? "none" : "0 30px 70px rgba(0,0,0,0.3)",
             overflow: "hidden",
             position: "relative",
             opacity: cardIn,
