@@ -3,6 +3,7 @@ import { HelloWorld } from "./HelloWorld";
 import { Logo } from "./HelloWorld/Logo";
 import { Title } from "./HelloWorld/Title";
 import { FITCO_REEL_DURATION, FitcoReel } from "./FitcoReel";
+import { UnreadEmails } from "./UnreadEmails";
 
 // Each <Composition> is an entry in the sidebar!
 
@@ -55,6 +56,14 @@ export const RemotionRoot: React.FC = () => {
         id="FitcoReel"
         component={FitcoReel}
         durationInFrames={FITCO_REEL_DURATION}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="UnreadEmails"
+        component={UnreadEmails}
+        durationInFrames={120}
         fps={30}
         width={1080}
         height={1920}
