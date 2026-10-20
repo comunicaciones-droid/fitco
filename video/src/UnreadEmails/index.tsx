@@ -1,14 +1,11 @@
 import React from "react";
 import {
   AbsoluteFill,
-  Img,
   interpolate,
   spring,
-  staticFile,
   useCurrentFrame,
   useVideoConfig,
 } from "remotion";
-import { Background, Words } from "../FitcoReel/components";
 import { FONT, MINT, MINT_GRADIENT, NAVY, WHITE } from "../FitcoReel/theme";
 
 const EMAILS = [
@@ -76,23 +73,14 @@ export const UnreadEmails: React.FC = () => {
 
   return (
     <AbsoluteFill>
-      <Background />
-      <AbsoluteFill style={{ alignItems: "center", padding: "300px 60px 0" }}>
-        <Words
-          text="¿Quién no ha abierto tu correo?"
-          size={82}
-          weight={800}
-          highlight={["correo?"]}
-          stagger={3}
-        />
-
+      {/* Transparent background: card is centered for its initial 7-row height. */}
+      <AbsoluteFill style={{ alignItems: "center", paddingTop: (1920 - 140 - EMAILS.length * ROW_H) / 2 }}>
         <div
           style={{
-            marginTop: 90,
             width: 960,
             borderRadius: 40,
             background: WHITE,
-            boxShadow: "0 40px 90px rgba(0,0,0,0.45)",
+            boxShadow: "0 30px 70px rgba(0,0,0,0.3)",
             overflow: "hidden",
             position: "relative",
             opacity: cardIn,
@@ -238,10 +226,6 @@ export const UnreadEmails: React.FC = () => {
           >
             <Cursor />
           </div>
-        </div>
-
-        <div style={{ marginTop: 80, opacity: interpolate(frame, [96, 106], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }) }}>
-          <Img src={staticFile("logo-fitco.png")} style={{ width: 300 }} />
         </div>
       </AbsoluteFill>
     </AbsoluteFill>
