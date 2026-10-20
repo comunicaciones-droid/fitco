@@ -3,7 +3,7 @@ import { HelloWorld } from "./HelloWorld";
 import { Logo } from "./HelloWorld/Logo";
 import { Title } from "./HelloWorld/Title";
 import { FITCO_REEL_DURATION, FitcoReel } from "./FitcoReel";
-import { UnreadEmails } from "./UnreadEmails";
+import { CARD_HEIGHT, CARD_WIDTH, UnreadEmails } from "./UnreadEmails";
 
 // Each <Composition> is an entry in the sidebar!
 
@@ -76,6 +76,15 @@ export const RemotionRoot: React.FC = () => {
         width={1080}
         height={1920}
         defaultProps={{ keyColor: "#ff00ff" }}
+      />
+      <Composition
+        id="UnreadEmailsCard"
+        component={UnreadEmails}
+        durationInFrames={120}
+        fps={30}
+        width={CARD_WIDTH}
+        height={CARD_HEIGHT}
+        defaultProps={{ cardOnly: true }}
       />
     </>
   );

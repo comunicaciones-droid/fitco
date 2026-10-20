@@ -42,13 +42,21 @@ const Cursor: React.FC = () => (
   </svg>
 );
 
+export const CARD_WIDTH = 960;
+export const CARD_HEIGHT = 140 + EMAILS.length * ROW_H;
+
 // keyColor: solid background for editors without alpha support (chroma key);
 // the drop shadow is dropped so the key comes out clean.
-export const UnreadEmails: React.FC<{ keyColor?: string }> = ({ keyColor }) => {
+// cardOnly: the card fills the whole frame at a fixed size, so there is no
+// background at all to remove.
+export const UnreadEmails: React.FC<{ keyColor?: string; cardOnly?: boolean }> = ({
+  keyColor,
+  cardOnly,
+}) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
 
-  const cardIn = spring({ frame, fps, config: { damping: 15 } });
+  const cardIn = cardOnly ? 1 : spring({ frame, fps, config: { damping: 15 } });
   const filtered = spring({ frame: frame - CLICK - 4, fps, config: { damping: 16 } });
   const press = interpolate(frame, [CLICK - 3, CLICK, CLICK + 4], [1, 0.85, 1], {
     extrapolateLeft: "clamp",
@@ -76,13 +84,14 @@ export const UnreadEmails: React.FC<{ keyColor?: string }> = ({ keyColor }) => {
   return (
     <AbsoluteFill style={{ background: keyColor }}>
       {/* Transparent background: card is centered for its initial 7-row height. */}
-      <AbsoluteFill style={{ alignItems: "center", paddingTop: (1920 - 140 - EMAILS.length * ROW_H) / 2 }}>
+      <AbsoluteFill style={{ alignItems: "center", paddingTop: cardOnly ? 0 : (1920 - CARD_HEIGHT) / 2 }}>
         <div
           style={{
-            width: 960,
-            borderRadius: 40,
+            width: CARD_WIDTH,
+            height: cardOnly ? CARD_HEIGHT : undefined,
+            borderRadius: cardOnly ? 0 : 40,
             background: WHITE,
-            boxShadow: keyColor ? "none" : "0 30px 70px rgba(0,0,0,0.3)",
+            boxShadow: keyColor || cardOnly ? "none" : "0 30px 70px rgba(0,0,0,0.3)",
             overflow: "hidden",
             position: "relative",
             opacity: cardIn,
@@ -189,7 +198,7 @@ export const UnreadEmails: React.FC<{ keyColor?: string }> = ({ keyColor }) => {
               );
             })}
             {/* Keeps the card height stable while rows are absolutely positioned. */}
-            <div style={{ height: interpolate(filtered, [0, 1], [EMAILS.length - 1, UNREAD - 1]) * ROW_H }} />
+            <div style={{ height: cardOnly ? 0 : interpolate(filtered, [0, 1], [EMAILS.length - 1, UNREAD - 1]) * ROW_H }} />
           </div>
 
           {/* Tooltip */}
