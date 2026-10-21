@@ -176,7 +176,7 @@ export const ReelCover: React.FC = () => (
       <PhotoCard src="full/alessandra.png" width={480} height={588} rotate={-5} label="Alessandra · FITCO" labelAlign="left" />
     </div>
     <div style={{ position: "absolute", right: 60, top: 900 }}>
-      <PhotoCard src="full/full-owner.png" width={520} height={600} rotate={5} label="Full Training" />
+      <PhotoCard src="full/full-owner.png" width={520} height={600} rotate={5} label="Emmanuel · Full Training" />
       <div style={{ position: "absolute", right: -18, top: -40, transform: "rotate(8deg)" }}>
         <FullLogo size={150} />
       </div>
