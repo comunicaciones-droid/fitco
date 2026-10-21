@@ -100,6 +100,15 @@ export const RemotionRoot: React.FC = () => {
         width={NO_NOTIFICATIONS_WIDTH}
         height={NO_NOTIFICATIONS_HEIGHT}
       />
+      <Composition
+        id="NoNotificationsChroma"
+        component={NoNotifications}
+        durationInFrames={NO_NOTIFICATIONS_DURATION}
+        fps={30}
+        width={NO_NOTIFICATIONS_WIDTH}
+        height={NO_NOTIFICATIONS_HEIGHT}
+        defaultProps={{ keyColor: "#ff00ff" }}
+      />
     </>
   );
 };
