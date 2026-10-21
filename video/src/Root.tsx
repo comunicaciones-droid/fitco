@@ -11,6 +11,7 @@ import {
   NoNotifications,
 } from "./NoNotifications";
 import { SEND_COMMUNICATION_DURATION, SendCommunication } from "./SendCommunication";
+import { CLOSING_DURATION, Closing } from "./Closing";
 
 // Each <Composition> is an entry in the sidebar!
 
@@ -114,6 +115,14 @@ export const RemotionRoot: React.FC = () => {
         id="SendCommunication"
         component={SendCommunication}
         durationInFrames={SEND_COMMUNICATION_DURATION}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="Closing"
+        component={Closing}
+        durationInFrames={CLOSING_DURATION}
         fps={30}
         width={1080}
         height={1920}
