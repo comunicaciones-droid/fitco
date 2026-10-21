@@ -4,6 +4,12 @@ import { Logo } from "./HelloWorld/Logo";
 import { Title } from "./HelloWorld/Title";
 import { FITCO_REEL_DURATION, FitcoReel } from "./FitcoReel";
 import { CARD_HEIGHT, CARD_WIDTH, UnreadEmails } from "./UnreadEmails";
+import {
+  NO_NOTIFICATIONS_DURATION,
+  NO_NOTIFICATIONS_HEIGHT,
+  NO_NOTIFICATIONS_WIDTH,
+  NoNotifications,
+} from "./NoNotifications";
 
 // Each <Composition> is an entry in the sidebar!
 
@@ -85,6 +91,14 @@ export const RemotionRoot: React.FC = () => {
         width={CARD_WIDTH}
         height={CARD_HEIGHT}
         defaultProps={{ cardOnly: true }}
+      />
+      <Composition
+        id="NoNotifications"
+        component={NoNotifications}
+        durationInFrames={NO_NOTIFICATIONS_DURATION}
+        fps={30}
+        width={NO_NOTIFICATIONS_WIDTH}
+        height={NO_NOTIFICATIONS_HEIGHT}
       />
     </>
   );
