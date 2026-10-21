@@ -10,6 +10,7 @@ import {
   NO_NOTIFICATIONS_WIDTH,
   NoNotifications,
 } from "./NoNotifications";
+import { SEND_COMMUNICATION_DURATION, SendCommunication } from "./SendCommunication";
 
 // Each <Composition> is an entry in the sidebar!
 
@@ -108,6 +109,14 @@ export const RemotionRoot: React.FC = () => {
         width={NO_NOTIFICATIONS_WIDTH}
         height={NO_NOTIFICATIONS_HEIGHT}
         defaultProps={{ keyColor: "#ff00ff" }}
+      />
+      <Composition
+        id="SendCommunication"
+        component={SendCommunication}
+        durationInFrames={SEND_COMMUNICATION_DURATION}
+        fps={30}
+        width={1080}
+        height={1920}
       />
     </>
   );
