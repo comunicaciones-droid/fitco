@@ -12,6 +12,7 @@ import {
 } from "./NoNotifications";
 import { SEND_COMMUNICATION_DURATION, SendCommunication } from "./SendCommunication";
 import { CLOSING_DURATION, Closing } from "./Closing";
+import { ReelCover, STORY_DURATION, StoryFeatures, StoryQuestion } from "./FullTraining";
 
 // Each <Composition> is an entry in the sidebar!
 
@@ -127,6 +128,11 @@ export const RemotionRoot: React.FC = () => {
         width={1080}
         height={1920}
       />
+      <Folder name="FullTraining">
+        <Composition id="FullCover" component={ReelCover} durationInFrames={1} fps={30} width={1080} height={1920} />
+        <Composition id="FullStoryQuestion" component={StoryQuestion} durationInFrames={STORY_DURATION} fps={30} width={1080} height={1920} />
+        <Composition id="FullStoryFeatures" component={StoryFeatures} durationInFrames={STORY_DURATION} fps={30} width={1080} height={1920} />
+      </Folder>
     </>
   );
 };
