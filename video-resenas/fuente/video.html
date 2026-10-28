@@ -49,10 +49,10 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:var(--n);font-fa
 .wipe{position:absolute;left:-10%;width:120%;top:-10%;height:120%;transform:translateY(110%);animation:wipe .75s cubic-bezier(.7,0,.3,1) var(--d) both;z-index:50}
 
 /* ---------- SCENE 1 ---------- */
-.h1{font-weight:800;font-size:92px;line-height:1.12;color:#fff;text-align:center;letter-spacing:-1.5px}
+.h1{font-weight:800;font-size:72px;line-height:1.12;color:#fff;text-align:center;letter-spacing:-1.5px}
 .hl{position:relative;display:inline-block;color:var(--n)}
 .hl::before{content:"";position:absolute;left:-14px;right:-14px;top:10px;bottom:4px;background:var(--g);border-radius:18px;transform-origin:left;transform:scaleX(0);animation:marker .45s var(--ease) var(--md) both;z-index:-1}
-.search{left:110px;width:860px;height:132px;border-radius:66px;background:#fff;box-shadow:0 30px 60px rgba(0,0,0,.35);display:flex;align-items:center;padding:0 44px;gap:28px;font-size:52px;font-weight:600;color:var(--n)}
+.search{left:110px;width:860px;height:132px;border-radius:66px;background:#fff;box-shadow:0 30px 60px rgba(0,0,0,.35);display:flex;align-items:center;padding:0 44px;gap:28px;font-size:44px;font-weight:600;color:var(--n)}
 .caret{width:5px;height:58px;background:var(--g);animation:blink .8s steps(1) infinite}
 .ch{display:inline-block;opacity:0;animation:charIn .12s ease-out var(--d) both}
 .result{left:110px;width:860px;border-radius:44px;background:#fff;padding:36px 40px;display:flex;gap:34px;align-items:center;box-shadow:0 30px 70px rgba(0,0,0,.35)}
@@ -73,7 +73,7 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:var(--n);font-fa
 .bar{width:54px;border-radius:14px 14px 6px 6px;background:var(--g);transform-origin:bottom;transform:scaleY(0);animation:grow .6s var(--back) var(--d) both}
 @keyframes grow{to{transform:scaleY(1)}}
 .av{width:78px;height:78px;border-radius:50%;border:5px solid #fff;margin-left:-22px;display:grid;place-items:center;font-size:38px}
-.t2{font-size:64px;font-weight:700;line-height:1.2;color:var(--n);text-align:center;letter-spacing:-.8px}
+.t2{font-size:50px;font-weight:700;line-height:1.2;color:var(--n);text-align:center;letter-spacing:-.8px}
 .t2 .gx{color:var(--g);font-weight:800}
 
 /* ---------- SCENE 3 ---------- */
@@ -98,7 +98,7 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:var(--n);font-fa
 /* ---------- SCENE 4 ---------- */
 .heart{position:absolute;bottom:-120px;animation:heartUp var(--dur) linear var(--d) infinite;opacity:0}
 @keyframes heartUp{0%{opacity:0;transform:translateY(0) scale(.6) rotate(0)}15%{opacity:.9}100%{opacity:0;transform:translateY(-2100px) scale(1.1) rotate(var(--r))}}
-.h4{font-weight:800;font-size:90px;line-height:1.13;text-align:center;letter-spacing:-1.5px}
+.h4{font-weight:800;font-size:70px;line-height:1.13;text-align:center;letter-spacing:-1.5px}
 </style>
 </head>
 <body>
@@ -115,7 +115,7 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:var(--n);font-fa
 
   <img class="abs popin" src="logo.png" style="left:370px;top:150px;width:340px;--d:.1s">
 
-  <div class="abs h1" style="left:0;right:0;top:390px">
+  <div class="abs h1" style="left:0;right:0;top:430px">
    <div><span class="w" style="--d:.25s">¿Quieres </span><span class="w" style="--d:.33s">que </span><span class="w" style="--d:.41s">tus</span></div>
    <div><span class="w" style="--d:.49s">alumnos </span><span class="w" style="--d:.57s">encuentren</span></div>
    <div><span class="w" style="--d:.65s">y </span><span class="w" style="--d:.73s">descarguen</span></div>
@@ -123,16 +123,16 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:var(--n);font-fa
    <div><span class="w" style="--d:1.0s">la </span><span class="w" style="--d:1.08s">app </span><span class="w" style="--d:1.16s">de </span><span class="w" style="--d:1.24s;color:var(--g)">Fitco? </span><span class="w emoji" style="--d:1.4s"><span style="display:inline-block;animation:floaty 1s ease-in-out infinite">📲</span></span></div>
   </div>
 
-  <div class="abs search" style="top:1130px;opacity:0;animation:rise .5s var(--ease) 1.45s both">
+  <div class="abs search" style="top:1020px;opacity:0;animation:rise .5s var(--ease) 1.45s both">
    <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#1dcd9f" stroke-width="2.8" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="7"/><path d="M16 16l5 5"/></svg>
    <div><span class="ch" style="--d:1.75s">F</span><span class="ch" style="--d:1.85s">i</span><span class="ch" style="--d:1.95s">t</span><span class="ch" style="--d:2.05s">c</span><span class="ch" style="--d:2.15s">o</span></div>
    <div class="caret" style="margin-left:-22px"></div>
   </div>
 
-  <div class="abs result" style="top:1300px;opacity:0;animation:rise .55s var(--back) 2.35s both">
+  <div class="abs result" style="top:1190px;opacity:0;animation:rise .55s var(--back) 2.35s both">
    <div class="appicon"><img src="logo_icon.png"></div>
    <div style="flex:1">
-    <div style="font-size:50px;font-weight:800;color:var(--n);line-height:1.1">FITCO</div>
+    <div style="font-size:42px;font-weight:800;color:var(--n);line-height:1.1">FITCO</div>
     <div style="font-size:26px;color:#7a8294;font-weight:500;margin:4px 0 12px">Salud y fitness</div>
     <div>
      <svg class="star" style="--s:40px;--d:2.6s" viewBox="0 0 24 24"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg class="star" style="--s:40px;--d:2.68s" viewBox="0 0 24 24"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg class="star" style="--s:40px;--d:2.76s" viewBox="0 0 24 24"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg class="star" style="--s:40px;--d:2.84s" viewBox="0 0 24 24"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg class="star" style="--s:40px;--d:2.92s" viewBox="0 0 24 24"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg>
@@ -149,7 +149,7 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:var(--n);font-fa
   <div class="orb" style="width:640px;height:640px;left:-300px;top:600px;background:rgba(29,205,159,.28)"></div>
   <div class="orb" style="width:560px;height:560px;right:-260px;top:-140px;background:rgba(29,205,159,.22);animation-delay:-3s"></div>
 
-  <div class="abs" style="left:0;right:0;top:180px;text-align:center;font-size:72px;font-weight:800;color:var(--n);letter-spacing:-1px">
+  <div class="abs" style="left:0;right:0;top:200px;text-align:center;font-size:56px;font-weight:800;color:var(--n);letter-spacing:-1px">
    <span class="w" style="--d:3.55s">Las </span><span class="w" style="--d:3.63s">calificaciones </span><span class="w" style="--d:3.71s">en</span>
   </div>
 
@@ -158,7 +158,7 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:var(--n);font-fa
     <svg width="64" height="64" viewBox="0 0 24 24"><path fill="#00D7FE" d="M1.337.924a1.486 1.486 0 0 0-.112.568v21.017c0 .217.045.419.124.6l11.155-11.087L1.337.924z"/><path fill="#00F076" d="M13.544 10.989l3.258-3.238L3.45.195a1.466 1.466 0 0 0-.946-.179l11.04 10.973z"/><path fill="#FF3A44" d="M13.544 13.056l-11 10.933c.298.036.612-.016.906-.183l13.324-7.54-3.23-3.21z"/><path fill="#FFC900" d="M22.018 13.298l-3.919 2.218-3.515-3.493 3.543-3.521 3.891 2.202a1.49 1.49 0 0 1 0 2.594z"/></svg>
     <div><small>DISPONIBLE EN</small><b>Google Play</b></div>
    </div>
-   <div class="w" style="--d:4.0s;font-size:52px;font-weight:800;color:var(--n)">y</div>
+   <div class="w" style="--d:4.0s;font-size:42px;font-weight:800;color:var(--n)">y</div>
    <div class="badge popin" style="--d:4.1s">
     <svg width="60" height="60" viewBox="0 0 24 24"><path fill="#fff" d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg>
     <div><small>Descárgalo en el</small><b>App Store</b></div>
@@ -176,7 +176,7 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:var(--n);font-fa
    </div>
   </div>
 
-  <div class="abs t2" style="left:60px;right:60px;top:880px">
+  <div class="abs t2" style="left:90px;right:90px;top:905px">
    <span class="w" style="--d:5.1s">ayudan </span><span class="w" style="--d:5.17s">a </span><span class="w" style="--d:5.24s">mejorar </span><span class="w" style="--d:5.31s">su </span><span class="w gx" style="--d:5.38s">visibilidad </span><span class="w" style="--d:5.5s">y </span><span class="w" style="--d:5.57s">a </span><span class="w" style="--d:5.64s">generar </span><span class="w gx" style="--d:5.71s">confianza </span><span class="w" style="--d:5.83s">en </span><span class="w" style="--d:5.9s">nuevos </span><span class="w" style="--d:5.97s">usuarios.</span>
   </div>
 
@@ -217,10 +217,10 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:var(--n);font-fa
   <div class="orb" style="width:760px;height:760px;left:160px;top:820px;background:rgba(29,205,159,.35)"></div>
   <div class="dots"></div>
 
-  <div class="abs" style="left:50px;right:50px;top:150px;text-align:center;color:#fff;font-size:58px;font-weight:600;line-height:1.25">
+  <div class="abs" style="left:50px;right:50px;top:170px;text-align:center;color:#fff;font-size:46px;font-weight:600;line-height:1.25">
    <span class="w" style="--d:7.85s">Cuando </span><span class="w" style="--d:7.91s">tus </span><span class="w" style="--d:7.97s">alumnos </span><span class="w" style="--d:8.03s">disfrutan </span><span class="w" style="--d:8.09s">de </span><span class="w" style="--d:8.15s">su </span><span class="w" style="--d:8.21s">experiencia </span><span class="w" style="--d:8.27s">con </span><span class="w" style="--d:8.33s">la </span><span class="w" style="--d:8.39s">app,</span>
   </div>
-  <div class="abs" style="left:30px;right:30px;top:320px;text-align:center;color:var(--g);font-size:80px;font-weight:800;line-height:1.1;letter-spacing:-1.2px">
+  <div class="abs" style="left:30px;right:30px;top:310px;text-align:center;color:var(--g);font-size:62px;font-weight:800;line-height:1.1;letter-spacing:-1.2px">
    <span class="w" style="--d:8.6s">¡anímalos </span><span class="w" style="--d:8.7s">a </span><span class="w" style="--d:8.8s">compartir </span><br><span class="w" style="--d:8.9s">su </span><span class="w" style="--d:9.0s">opinión!</span>
   </div>
 
@@ -296,10 +296,10 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:var(--n);font-fa
   <div class="ringfx" style="left:540px;top:1060px;--d:12.8s;border-color:#fff"></div>
   <div class="ringfx" style="left:540px;top:1060px;--d:13.0s;border-color:var(--n);border-width:3px"></div>
 
-  <div class="abs h4" style="left:30px;right:30px;top:250px;color:var(--n)">
+  <div class="abs h4" style="left:30px;right:30px;top:290px;color:var(--n)">
    <span class="w" style="--d:11.9s">¡Así </span><span class="w" style="--d:11.98s">nos </span><span class="w" style="--d:12.06s">ayudas </span><span class="w" style="--d:12.14s">a</span><br><span class="w" style="--d:12.22s">llegar </span><span class="w" style="--d:12.3s">a </span><span class="w" style="--d:12.38s">más </span><span class="w" style="--d:12.46s">personas</span>
   </div>
-  <div class="abs h4" style="left:30px;right:30px;top:500px;color:#fff">
+  <div class="abs h4" style="left:30px;right:30px;top:480px;color:#fff">
    <span class="w" style="--d:12.6s">y </span><span class="w" style="--d:12.68s">seguimos </span><br><span class="w" style="--d:12.76s">creciendo </span><span class="w" style="--d:12.84s">juntos! </span><span class="w emoji" style="--d:13.0s"><span style="display:inline-block;animation:floaty .9s ease-in-out infinite">💚</span></span>
   </div>
 
