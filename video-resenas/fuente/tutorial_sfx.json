@@ -1,0 +1,468 @@
+{
+"duration": 47.0,
+"sfx": [
+{
+"t": 0.05,
+"kind": "whoosh"
+},
+{
+"t": 0.2,
+"kind": "pop"
+},
+{
+"t": 2.5,
+"kind": "ding",
+"note": 72
+},
+{
+"t": 2.64,
+"kind": "ding",
+"note": 76
+},
+{
+"t": 2.78,
+"kind": "ding",
+"note": 79
+},
+{
+"t": 2.92,
+"kind": "ding",
+"note": 84
+},
+{
+"t": 3.06,
+"kind": "ding",
+"note": 88
+},
+{
+"t": 3.3,
+"kind": "pop"
+},
+{
+"t": 4.7,
+"kind": "pop"
+},
+{
+"t": 4.85,
+"kind": "pop"
+},
+{
+"t": 6.7,
+"kind": "pop"
+},
+{
+"t": 6.8,
+"kind": "whooshUp"
+},
+{
+"t": 7.5,
+"kind": "step"
+},
+{
+"t": 12.5,
+"kind": "step"
+},
+{
+"t": 17.5,
+"kind": "step"
+},
+{
+"t": 6.85,
+"kind": "whoosh"
+},
+{
+"t": 9.0,
+"kind": "key"
+},
+{
+"t": 9.16,
+"kind": "key"
+},
+{
+"t": 9.32,
+"kind": "key"
+},
+{
+"t": 9.48,
+"kind": "key"
+},
+{
+"t": 9.64,
+"kind": "key"
+},
+{
+"t": 10.1,
+"kind": "pop"
+},
+{
+"t": 12.5,
+"kind": "swipe"
+},
+{
+"t": 13.8,
+"kind": "scroll"
+},
+{
+"t": 15.0,
+"kind": "ding",
+"note": 84
+},
+{
+"t": 19.8,
+"kind": "key"
+},
+{
+"t": 19.87,
+"kind": "key"
+},
+{
+"t": 19.94,
+"kind": "key"
+},
+{
+"t": 20.01,
+"kind": "key"
+},
+{
+"t": 20.08,
+"kind": "key"
+},
+{
+"t": 20.15,
+"kind": "key"
+},
+{
+"t": 20.22,
+"kind": "key"
+},
+{
+"t": 20.29,
+"kind": "key"
+},
+{
+"t": 20.36,
+"kind": "key"
+},
+{
+"t": 20.43,
+"kind": "key"
+},
+{
+"t": 20.5,
+"kind": "key"
+},
+{
+"t": 20.57,
+"kind": "key"
+},
+{
+"t": 20.64,
+"kind": "key"
+},
+{
+"t": 20.71,
+"kind": "key"
+},
+{
+"t": 20.78,
+"kind": "key"
+},
+{
+"t": 8.5,
+"kind": "tap"
+},
+{
+"t": 11.4,
+"kind": "tap"
+},
+{
+"t": 17.95,
+"kind": "tap"
+},
+{
+"t": 18.05,
+"kind": "ding",
+"note": 76
+},
+{
+"t": 18.15,
+"kind": "ding",
+"note": 79
+},
+{
+"t": 18.25,
+"kind": "ding",
+"note": 81
+},
+{
+"t": 18.35,
+"kind": "ding",
+"note": 84
+},
+{
+"t": 18.45,
+"kind": "ding",
+"note": 88
+},
+{
+"t": 19.1,
+"kind": "whooshUp"
+},
+{
+"t": 21.25,
+"kind": "tap"
+},
+{
+"t": 21.7,
+"kind": "success"
+},
+{
+"t": 22.7,
+"kind": "pop"
+},
+{
+"t": 22.8,
+"kind": "whooshUp"
+},
+{
+"t": 23.5,
+"kind": "step"
+},
+{
+"t": 28.5,
+"kind": "step"
+},
+{
+"t": 33.5,
+"kind": "step"
+},
+{
+"t": 22.85,
+"kind": "whoosh"
+},
+{
+"t": 25.0,
+"kind": "key"
+},
+{
+"t": 25.16,
+"kind": "key"
+},
+{
+"t": 25.32,
+"kind": "key"
+},
+{
+"t": 25.48,
+"kind": "key"
+},
+{
+"t": 25.64,
+"kind": "key"
+},
+{
+"t": 26.1,
+"kind": "pop"
+},
+{
+"t": 28.5,
+"kind": "swipe"
+},
+{
+"t": 29.8,
+"kind": "scroll"
+},
+{
+"t": 31.0,
+"kind": "ding",
+"note": 84
+},
+{
+"t": 35.8,
+"kind": "key"
+},
+{
+"t": 35.87,
+"kind": "key"
+},
+{
+"t": 35.94,
+"kind": "key"
+},
+{
+"t": 36.01,
+"kind": "key"
+},
+{
+"t": 36.08,
+"kind": "key"
+},
+{
+"t": 36.15,
+"kind": "key"
+},
+{
+"t": 36.22,
+"kind": "key"
+},
+{
+"t": 36.29,
+"kind": "key"
+},
+{
+"t": 36.36,
+"kind": "key"
+},
+{
+"t": 36.43,
+"kind": "key"
+},
+{
+"t": 36.5,
+"kind": "key"
+},
+{
+"t": 36.57,
+"kind": "key"
+},
+{
+"t": 36.64,
+"kind": "key"
+},
+{
+"t": 36.71,
+"kind": "key"
+},
+{
+"t": 36.78,
+"kind": "key"
+},
+{
+"t": 24.5,
+"kind": "tap"
+},
+{
+"t": 27.4,
+"kind": "tap"
+},
+{
+"t": 33.95,
+"kind": "tap"
+},
+{
+"t": 34.05,
+"kind": "ding",
+"note": 76
+},
+{
+"t": 34.15,
+"kind": "ding",
+"note": 79
+},
+{
+"t": 34.25,
+"kind": "ding",
+"note": 81
+},
+{
+"t": 34.35,
+"kind": "ding",
+"note": 84
+},
+{
+"t": 34.45,
+"kind": "ding",
+"note": 88
+},
+{
+"t": 35.1,
+"kind": "whooshUp"
+},
+{
+"t": 37.25,
+"kind": "tap"
+},
+{
+"t": 37.7,
+"kind": "success"
+},
+{
+"t": 38.8,
+"kind": "whoosh"
+},
+{
+"t": 40.2,
+"kind": "ding",
+"note": 76
+},
+{
+"t": 40.32,
+"kind": "ding",
+"note": 79
+},
+{
+"t": 40.44,
+"kind": "ding",
+"note": 81
+},
+{
+"t": 40.56,
+"kind": "ding",
+"note": 84
+},
+{
+"t": 40.68,
+"kind": "ding",
+"note": 88
+},
+{
+"t": 40.9,
+"kind": "pop"
+},
+{
+"t": 41.3,
+"kind": "pop"
+},
+{
+"t": 41.7,
+"kind": "pop"
+},
+{
+"t": 43.6,
+"kind": "pop"
+},
+{
+"t": 44.8,
+"kind": "pop"
+},
+{
+"t": 44.95,
+"kind": "pop"
+},
+{
+"t": 45.2,
+"kind": "chime"
+},
+{
+"t": 6.08,
+"kind": "wipe"
+},
+{
+"t": 22.08,
+"kind": "wipe"
+},
+{
+"t": 38.08,
+"kind": "wipe"
+},
+{
+"t": 42.88,
+"kind": "wipe"
+}
+],
+"drops": [
+6.5,
+22.5,
+38.5
+]
+}
