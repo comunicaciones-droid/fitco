@@ -6,7 +6,14 @@ from scipy import signal
 from scipy.io import wavfile
 
 SR = 44100
-DUR = 15.0
+DUR = 20.0
+# Pausas de lectura [tiempo de animación, segundos extra]; igual que HOLDS en video.html
+HOLDS = [(2.94, 1.2), (7.24, 1.5), (11.24, 1.4), (14.2, 0.9)]
+
+
+def real(t):
+    return t + sum(e for h, e in HOLDS if t > h)
+
 N = int(SR * DUR)
 rng = np.random.default_rng(3)
 BPM = 124
@@ -22,6 +29,8 @@ def t_arr(d):
 
 
 def add(buf, start, x, gain=1.0, pan=0.0):
+    if buf is sfx:
+        start = real(start)
     i = int(start * SR)
     if i >= N:
         return
@@ -89,7 +98,8 @@ def hat(open_=False):
 # Am - F - C - G (2 beats... 4 beats each)
 prog = [(57, [57, 60, 64, 69]), (53, [53, 57, 60, 65]), (48, [55, 60, 64, 67]), (55, [55, 59, 62, 67])]
 nbeats = int(DUR / BEAT) + 2
-DROP = 3.4
+DROP = real(3.4)
+END = 19.0
 duck = np.ones(N)
 
 for b in range(nbeats):
@@ -97,7 +107,7 @@ for b in range(nbeats):
     if tb >= DUR:
         break
     full = tb >= DROP - 0.01
-    outro = tb >= 14.3
+    outro = tb >= END
     # kick (four on the floor), skip during the last beat before the drop for tension
     if not (DROP - BEAT * 1.01 < tb < DROP - 0.01) and not outro:
         add(kbuf, tb, kick(), 0.95)
@@ -136,7 +146,7 @@ for bar in range(int(DUR / (4 * BEAT)) + 1):
     e = np.minimum(t_arr(4 * BEAT) / 0.08, 1) * np.minimum((4 * BEAT - t_arr(4 * BEAT)) / 0.1, 1)
     add(music, tb, np.stack([pad * e, np.roll(pad, 300) * e], 1), 0.18)
     # arpeggio pluck after the drop
-    if full and tb < 14.3:
+    if full and tb < END:
         notes = chord + [chord[1] + 12, chord[2] + 12]
         for s in range(8):
             m = notes[[0, 2, 1, 3, 2, 4, 3, 5][s]] + 12
@@ -158,8 +168,8 @@ music += kbuf
 # final chord hit
 fin = sum(saw(midi(m), 2.0, (-10, 0, 10)) for m in [57, 60, 64, 69, 72]) / 5
 fin = lp(fin, 2500) * env(len(fin), 0.003, 0.5)
-add(music, 14.3, fin, 0.35)
-add(music, 14.3, kick(), 0.8)
+add(music, END, fin, 0.35)
+add(music, END, kick(), 0.8)
 
 # ---------------- SFX ----------------
 def pop(pitch=600, d=0.12):
@@ -215,7 +225,7 @@ for i, t0 in enumerate([1.75, 1.85, 1.95, 2.05, 2.15]):
     add(sfx, t0, click(), 0.5, (-0.3, 0.3)[i % 2])
 # result card + small stars
 add(sfx, 2.35, pop(420), 0.55)
-for i, t0 in enumerate([2.6, 2.68, 2.76, 2.84]):
+for i, t0 in enumerate([2.38, 2.43, 2.48, 2.53]):
     add(sfx, t0, ding(84 + [0, 2, 4, 7][i], 0.3), 0.12)
 # badges
 add(sfx, 3.85, pop(520), 0.6, -0.3)
@@ -246,8 +256,8 @@ for i, t0 in enumerate([10.15, 10.22, 10.29, 10.36, 10.43]):
 add(sfx, 10.42, sparkle(), 0.35, 0.2)
 add(sfx, 10.42, whoosh(0.5, 2000, 8000), 0.25)
 # review bubbles
-add(sfx, 10.7, pop(600), 0.55, -0.5)
-add(sfx, 10.95, pop(700), 0.55, 0.5)
+add(sfx, 10.55, pop(600), 0.55, -0.5)
+add(sfx, 10.68, pop(700), 0.55, 0.5)
 # closing
 add(sfx, 12.8, whoosh(0.7, 150, 1500), 0.5)
 add(sfx, 12.8, pop(380, 0.2), 0.75)

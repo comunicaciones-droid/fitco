@@ -88,7 +88,7 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:var(--n);font-fa
 .rbtn{background:var(--n);color:#fff;border-radius:999px;font-size:18px;font-weight:600;padding:16px 22px}
 .modal{width:620px;padding:46px 40px 44px;text-align:center}
 .bubble{background:#fff;border-radius:36px;padding:26px 34px;box-shadow:0 26px 60px rgba(0,0,0,.35);color:var(--n);font-size:32px;font-weight:600;line-height:1.3}
-.conf{position:absolute;width:18px;height:30px;border-radius:5px;opacity:0;animation:boom 1.1s cubic-bezier(.1,.8,.3,1) var(--d) both}
+.conf{position:absolute;width:18px;height:30px;border-radius:5px;opacity:0;animation:boom .8s cubic-bezier(.1,.8,.3,1) var(--d) both}
 @keyframes boom{0%{opacity:1;transform:translate(0,0) rotate(0)}80%{opacity:1}100%{opacity:0;transform:translate(var(--x),var(--y)) rotate(var(--r))}}
 @keyframes tap{0%{transform:translate(160px,260px) rotate(-12deg);opacity:0}25%{opacity:1}70%{transform:translate(0,0) rotate(0)}80%{transform:translate(0,0) scale(.85)}90%,100%{transform:translate(0,0) scale(1);opacity:1}}
 @keyframes ripple{0%{opacity:.7;transform:translate(-50%,-50%) scale(.2)}100%{opacity:0;transform:translate(-50%,-50%) scale(2.2)}}
@@ -135,7 +135,7 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:var(--n);font-fa
     <div style="font-size:42px;font-weight:800;color:var(--n);line-height:1.1">FITCO</div>
     <div style="font-size:26px;color:#7a8294;font-weight:500;margin:4px 0 12px">Salud y fitness</div>
     <div>
-     <svg class="star" style="--s:40px;--d:2.6s" viewBox="0 0 24 24"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg class="star" style="--s:40px;--d:2.68s" viewBox="0 0 24 24"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg class="star" style="--s:40px;--d:2.76s" viewBox="0 0 24 24"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg class="star" style="--s:40px;--d:2.84s" viewBox="0 0 24 24"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg class="star" style="--s:40px;--d:2.92s" viewBox="0 0 24 24"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg>
+     <svg class="star" style="--s:40px;--d:2.38s" viewBox="0 0 24 24"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg class="star" style="--s:40px;--d:2.43s" viewBox="0 0 24 24"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg class="star" style="--s:40px;--d:2.48s" viewBox="0 0 24 24"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg class="star" style="--s:40px;--d:2.53s" viewBox="0 0 24 24"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg class="star" style="--s:40px;--d:2.58s" viewBox="0 0 24 24"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg>
     </div>
    </div>
    <div class="btn">Obtener</div>
@@ -280,10 +280,10 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:var(--n);font-fa
   </div>
 
   <!-- review bubbles -->
-  <div class="abs bubble" style="left:40px;top:560px;max-width:620px;opacity:0;animation:slideL .55s var(--back) 10.7s both">
+  <div class="abs bubble" style="left:40px;top:560px;max-width:620px;opacity:0;animation:slideL .55s var(--back) 10.55s both">
    <div style="color:var(--g);font-size:30px;letter-spacing:4px">★★★★★</div>¡Reservar mis clases es súper fácil!
   </div>
-  <div class="abs bubble" style="right:40px;top:1530px;max-width:600px;opacity:0;animation:slideR .55s var(--back) 10.95s both">
+  <div class="abs bubble" style="right:40px;top:1530px;max-width:600px;opacity:0;animation:slideR .55s var(--back) 10.68s both">
    <div style="color:var(--g);font-size:30px;letter-spacing:4px">★★★★★</div>La mejor app para entrenar <span class="emoji">💪</span>
   </div>
  </div>
@@ -350,7 +350,11 @@ for(let i=0;i<16;i++){const e=document.createElement('div');e.className='heart';
  e.innerHTML=`<svg width="${sz}" height="${sz}" viewBox="0 0 24 24"><path fill="${i%3?'rgba(255,255,255,.55)':'rgba(25,34,66,.35)'}" d="M12 21s-8.5-5.3-8.5-11.2A4.8 4.8 0 0112 6.7a4.8 4.8 0 018.5 3.1C20.5 15.7 12 21 12 21z"/></svg>`;
  e.style.cssText=`left:${rnd()*1000}px;--dur:${2.4+rnd()*1.6}s;--d:${11.75+rnd()*1.6}s;--r:${(rnd()*80-40)|0}deg`;
  hearts.appendChild(e);}
-window.seek=t=>{document.getAnimations().forEach(a=>{a.pause();a.currentTime=t*1000})};
+// Pausas de lectura: [tiempo de animación, segundos extra]. Mantener igual que HOLDS en audio.py.
+const HOLDS=[[2.94,1.2],[7.24,1.5],[11.24,1.4],[14.2,0.9]];
+const remap=T=>{let t=T;for(const [h,e] of HOLDS){if(t<=h)break;if(t<h+e)return h;t-=e}return t};
+// Animaciones infinitas (orbes, corazones, rebotes) siguen en tiempo real para que la pausa no se vea congelada.
+window.seek=T=>{const t=remap(T);document.getAnimations().forEach(a=>{a.pause();a.currentTime=(a.effect.getTiming().iterations===Infinity?T:t)*1000})};
 </script>
 </body>
 </html>
