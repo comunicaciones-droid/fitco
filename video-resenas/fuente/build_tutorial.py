@@ -260,7 +260,7 @@ parts.append(f'''
  <div class="dots"></div>
  <div class="ringfx" style="left:540px;top:900px;--d:0s"></div>
  <img class="abs popin" src="logo.png" style="left:390px;top:170px;width:300px;--d:.2s">
- <div class="abs" style="left:60px;right:60px;top:390px;text-align:center;color:var(--g);font-size:60px;font-weight:800">{words('¡Hola, promotor Fitco!', .6, .1)}<span class="w emoji" style="--d:1.0s"><span class="wave">👋</span></span></div>
+ <div class="abs" style="left:60px;right:60px;top:390px;text-align:center;color:var(--g);font-size:60px;font-weight:800">{words('¡Hola!', .6, .1)}<span class="w emoji" style="--d:.8s"><span class="wave">👋</span></span></div>
  <div class="abs" style="left:70px;right:70px;top:500px;text-align:center;color:#fff;font-size:58px;font-weight:700;line-height:1.2">{words('Ayúdanos a crecer calificando la app de Fitco con', 1.4, .09)}</div>
  <div class="abs" style="left:0;right:0;top:720px;text-align:center;white-space:nowrap">{stars(5, 120, 2.5, .14, 'star', '#1dcd9f', 10)}</div>
  <div class="abs" style="left:0;right:0;top:880px;text-align:center"><span class="popin" style="--d:3.3s;display:inline-block;background:var(--g);color:var(--n);font-size:46px;font-weight:800;border-radius:999px;padding:12px 44px">5 estrellas</span></div>
